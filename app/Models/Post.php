@@ -15,8 +15,19 @@ class Post extends Model
 {
     use HasFactory;
     use SoftDeletes;
-    use HasSlug;    
+    use HasSlug;
 
+    protected $casts = [
+        'tags' => 'array',
+    ];
+
+    protected $fillable = [
+        'title',
+        'category_id',
+        'tags',
+        'featured_image',
+    ];
+    
     protected static function boot()
     {
         parent::boot();

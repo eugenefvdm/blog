@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Tag;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -15,6 +16,10 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(UserSeeder::class);
+
+        $this->call(CategorySeeder::class);
+        Tag::factory()->count(10)->create();
+        $this->call(PostSeeder::class);
         
         // \App\Models\User::factory(10)->create();
 
