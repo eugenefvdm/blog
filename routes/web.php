@@ -15,9 +15,7 @@ use App\Http\Controllers\CategoryController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('blog.index');
-// })->name('home');
+Route::feeds();
 
 Route::get('/admin-panel', function () {
     return redirect('/admin');
@@ -26,6 +24,7 @@ Route::get('/admin-panel', function () {
 Route::get('/', [PostController::class, 'index'])
     ->name('home');
 
+// Start blog routes
 Route::get('/', [PostController::class, 'index'])
     ->name('blog');
 

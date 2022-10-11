@@ -4,7 +4,7 @@
 
     @section('meta_description', '')
 
-    <div class="relative bg-gray-50 px-4 pt-16 pb-20 sm:px-6 lg:px-8 lg:pt-24 lg:pb-16">
+    <div class="relative bg-gray-50 px-4 pt-16 pb-12 sm:px-6 lg:px-8 lg:pt-24 lg:pb-12">
         <div class="absolute inset-0">
             <div class="h-1/3 bg-white sm:h-2/3"></div>
         </div>
@@ -40,7 +40,7 @@
                                     {{ $post->title }}
                                     </a>
                                     </p>
-                                    <p class="line-clamp-4 mt-3 text-base text-gray-500">{!! $post->body !!}</p>
+                                    <p class="line-clamp-3 mt-3 text-base text-gray-500">{!! $post->body !!}</p>
                                     <a class="mt-1 text-sm hover:underline"
                                         href="/{{ $post->category->slug }}/{{ $post->slug }}" class="text-sm">Read
                                         more...</a>

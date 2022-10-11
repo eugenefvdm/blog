@@ -34,6 +34,9 @@ class Settings extends SettingsPage
             Checkbox::make('enable_breadcrumbs')
             ->label('Enable Breadcrumbs'),
 
+            Checkbox::make('enable_rss')
+            ->label('Enable RSS'),
+
             RichEditor::make('copyright'),
         ];
     }

@@ -20,13 +20,12 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->string('slug');
             $table->text('body');            
+            $table->string('excerpt')->nullable();
             $table->json('tags')->nullable(); 
             $table->string('description')->nullable();
             $table->string('featured_image')->nullable();                        
             $table->string('featured_image_alt_tag')->nullable();            
-            $table->string('status')->nullable();
-            $table->string('excerpt')->nullable();
-            $table->string('focus_keyword')->nullable();            
+            $table->string('status')->nullable();            
             $table->timestamps();
             $table->softDeletes();
         });
