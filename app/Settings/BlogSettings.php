@@ -6,7 +6,9 @@ use Spatie\LaravelSettings\Settings;
 
 class BlogSettings extends Settings
 {
-    public string $site_name;
+    public string $title;
+    public string $subtitle;
+    public $enable_breadcrumbs;
             
     public static function group(): string
     {

@@ -15,21 +15,21 @@ use App\Http\Controllers\CategoryController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('blog.index');
+// })->name('home');
 
-Route::name('home')->get('/home', function () {
-    return view('blog.index');
-});
+// Route::name('home')->get('/home', function () {
+//     return view('blog.index');
+// });
 
 // Blog routes
-Route::name('blog')->get('/blog', [PostController::class, 'index']);
+Route::name('home')->get('/', [PostController::class, 'index']);
 
-Route::get('/blog/category/{category}', [CategoryController::class, 'show'])
+Route::get('/category/{category}', [CategoryController::class, 'show'])
     ->name('category');
     
-Route::get('/blog/{post}', [PostController::class, 'show'])
+Route::get('/{category}/{post}', [PostController::class, 'show'])
     ->name('post');
 // End blog routes
 

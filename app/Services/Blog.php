@@ -2,14 +2,20 @@
 
 namespace App\Services;
 
-use App\Settings\BlogSettings;
+use Diglactic\Breadcrumbs\Breadcrumbs;
 
 class Blog
-{
-    /**
-     * Here we use Spatie settings, but if you're using Laravel Nova you might be using something else
-     */
-    public static function name() {
-        return app(BlogSettings::class)->site_name;
-    }    
+{    
+    public static function enableBreadcrumbs() {
+        if (Settings::enableBreadcrumbs()) {
+            return true;
+        }
+    }
+    public static function title() {
+        return Settings::blogTitle();
+    }
+
+    public static function subtitle() {
+        return Settings::blogSubtitle();
+    }
 }

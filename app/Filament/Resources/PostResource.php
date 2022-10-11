@@ -5,7 +5,9 @@ namespace App\Filament\Resources;
 use App\Models\Tag;
 use Filament\Forms;
 use App\Models\Post;
+use App\Models\User;
 use Filament\Tables;
+use App\Enums\Status;
 use App\Models\Category;
 use Filament\Resources\Form;
 use Filament\Resources\Table;
@@ -13,6 +15,7 @@ use Filament\Resources\Resource;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use App\Filament\Resources\PostResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\PostResource\RelationManagers;
@@ -33,11 +36,18 @@ class PostResource extends Resource
                 Forms\Components\Select::make('category_id')
                     ->label('Category')
                     ->options(Category::all()->pluck('title', 'id'))
-                    ->searchable(),
+                    ->searchable()
+                    ->required(),
+                Forms\Components\RichEditor::make('body')
+                    ->columnSpan(2)
+                    ->required(),
                 Forms\Components\Select::make('tags')
                     ->multiple()
                     ->options(Tag::all()->pluck('title', 'title')),
                 Forms\Components\FileUpload::make('featured_image'),
+                Forms\Components\Select::make('status')                    
+                    ->options(Status::options())
+                    ->default(Status::PUBLISHED),
             ]);
     }
 
@@ -46,9 +56,10 @@ class PostResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\ImageColumn::make('featured_image'),
-                Tables\Columns\TextColumn::make('title'),
-                Tables\Columns\TextColumn::make('category.title'),
-                Tables\Columns\TextColumn::make('tags'),
+                Tables\Columns\TextColumn::make('title')->wrap(),
+                Tables\Columns\TextColumn::make('category.title'),                
+                // Tables\Columns\TextColumn::make('tags'),
+                Tables\Columns\TextColumn::make('status'),
                 // Tables\Columns\TextColumn::make('user.name')
                 //     ->label('Author'),
                 Tables\Columns\TextColumn::make('created_at')->dateTime(),
@@ -64,6 +75,18 @@ class PostResource extends Resource
                 Tables\Actions\DeleteBulkAction::make(),
                 Tables\Actions\RestoreBulkAction::make(),
                 Tables\Actions\ForceDeleteBulkAction::make(),
+                Tables\Actions\BulkAction::make('updateStatus')
+                ->action(function (Collection $records, array $data): void {
+                    foreach ($records as $record) {
+                        $record->status = $data['status'];
+                        $record->save();
+                    }
+                })
+                ->form([
+                    Forms\Components\Select::make('status')                        
+                        ->options(Status::options())
+                        ->required(),
+                ])
             ]);
     }
 

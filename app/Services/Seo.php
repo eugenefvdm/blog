@@ -12,7 +12,7 @@ class Seo
 {
     public static function page($page)
     {        
-        $page->twitterSite = ''; // Get from author
+        $page->twitterSite = $page->user->name;
 
         $SeoToolPageTitle = $page->title . ' - ' . config('app.name');
 

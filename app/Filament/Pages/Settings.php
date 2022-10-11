@@ -3,6 +3,7 @@
 namespace App\Filament\Pages;
 
 use App\Settings\BlogSettings;
+use Filament\Forms\Components\Checkbox;
 use Filament\Pages\SettingsPage;
 use Filament\Forms\Components\TextInput;
 
@@ -19,9 +20,14 @@ class Settings extends SettingsPage
     protected function getFormSchema(): array
     {
         return [
-            TextInput::make('site_name')
-                ->label('Blog Name')
-                ->required(),            
+            TextInput::make('title')
+                ->label('Blog title')
+                ->required(),
+            TextInput::make('subtitle')
+                ->label('Blog subtitle')
+                ->required(),
+            Checkbox::make('enable_breadcrumbs')
+                ->label('Enable Breadcrumbs'),                
         ];
     }
 }

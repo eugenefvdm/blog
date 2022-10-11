@@ -16,16 +16,18 @@ class Post extends Model
     use HasFactory;
     use SoftDeletes;
     use HasSlug;
-
+    
     protected $casts = [
         'tags' => 'array',
     ];
 
     protected $fillable = [
         'title',
+        'body',
         'category_id',
         'tags',
         'featured_image',
+        'status',
     ];
     
     protected static function boot()
@@ -49,6 +51,10 @@ class Post extends Model
         return SlugOptions::create()
             ->generateSlugsFrom('title')
             ->saveSlugsTo('slug');
+    }
+
+    public function getImageAttribute() {
+        return '/storage/' . $this->featured_image;
     }
     
     public function category()

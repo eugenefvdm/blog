@@ -2,23 +2,25 @@
 
 namespace App\Http\Controllers;
 
-use App\Repos\Seo;
 use App\Models\Post;
+use App\Enums\Status;
+use App\Services\Seo;
+use App\Models\Category;
 
 class PostController extends Controller
 {
 
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::whereStatus(Status::PUBLISHED)->latest()->get();
 
         return view('blog.index', compact('posts'));
     }
 
-    public function show(Post $post)
+    public function show(Category $category, Post $post)
     {        
         $seo = Seo::page($post);
-                
+
         return view('blog.post.show', compact('post', 'seo'));
     }
 
