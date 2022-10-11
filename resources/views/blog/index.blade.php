@@ -1,4 +1,4 @@
-<x-guest-layout>
+<x-app-layout>
 
     @section('title', '')
 
@@ -76,4 +76,4 @@
 
     @include('section.footer-small')
 
-</x-guest-layout>
+</x-app-layout>

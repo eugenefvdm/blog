@@ -5,11 +5,9 @@ namespace App\Services;
 use App\Settings\BlogSettings;
 
 /**
- * Abstraction of settings class.
+ * Abstraction of settings class that's used throughout to refer to settings.
  * 
- * Called throughout but see Blog service.
- * 
- * Here we use Spatie settings, but if you're using Laravel Nova you might be using something else
+ * Here we use Spatie settings, but if you're using Laravel Nova you might be using something else.
  */
 class Settings
 {   

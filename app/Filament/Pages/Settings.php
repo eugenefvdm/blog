@@ -4,6 +4,7 @@ namespace App\Filament\Pages;
 
 use App\Settings\BlogSettings;
 use Filament\Forms\Components\Checkbox;
+use Filament\Forms\Components\RichEditor;
 use Filament\Pages\SettingsPage;
 use Filament\Forms\Components\TextInput;
 
@@ -23,11 +24,17 @@ class Settings extends SettingsPage
             TextInput::make('title')
                 ->label('Blog title')
                 ->required(),
+
             TextInput::make('subtitle')
                 ->label('Blog subtitle')
                 ->required(),
+            
+            TextInput::make('twitter_username'),
+
             Checkbox::make('enable_breadcrumbs')
-                ->label('Enable Breadcrumbs'),                
+            ->label('Enable Breadcrumbs'),
+
+            RichEditor::make('copyright'),
         ];
     }
 }

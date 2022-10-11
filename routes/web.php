@@ -19,12 +19,15 @@ use App\Http\Controllers\CategoryController;
 //     return view('blog.index');
 // })->name('home');
 
-// Route::name('home')->get('/home', function () {
-//     return view('blog.index');
-// });
+Route::get('/admin-panel', function () {
+    return redirect('/admin');
+})->name('admin');
 
-// Blog routes
-Route::name('home')->get('/', [PostController::class, 'index']);
+Route::get('/', [PostController::class, 'index'])
+    ->name('home');
+
+Route::get('/', [PostController::class, 'index'])
+    ->name('blog');
 
 Route::get('/category/{category}', [CategoryController::class, 'show'])
     ->name('category');
