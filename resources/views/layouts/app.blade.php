@@ -13,6 +13,13 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
+        @if (config('payfast.testmode') == true)
+            <!-- PayFast Test Mode -->
+            <script src="https://sandbox.payfast.co.za/onsite/engine.js" defer></script>
+        @else
+            <script src="https://www.payfast.co.za/onsite/engine.js" defer></script>
+        @endif        
+
         <!-- Styles -->
         @livewireStyles
     </head>
@@ -42,5 +49,7 @@
         @stack('modals')
 
         @livewireScripts
+
+        @stack('payfast-event-listener')
     </body>
 </html>
