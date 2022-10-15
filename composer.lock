@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e3e26c2e697aa552b38b5f3a8e57c7b6",
+    "content-hash": "c98952de8dbec986d9f5e79d35f2cc93",
     "packages": [
         {
             "name": "akaunting/laravel-money",
@@ -1787,11 +1787,17 @@
         },
         {
             "name": "fintechsystems/payfast-onsite-subscriptions",
-            "version": "dev-main",
+            "version": "v1.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fintech-systems/payfast-onsite-subscriptions.git",
+                "reference": "b6f1ea8f3573cdcc3d628982f29338aef8388546"
+            },
             "dist": {
-                "type": "path",
-                "url": "../payfast-onsite-subscriptions",
-                "reference": "138cac3592358535219a3f588daedc430abfb48d"
+                "type": "zip",
+                "url": "https://api.github.com/repos/fintech-systems/payfast-onsite-subscriptions/zipball/b6f1ea8f3573cdcc3d628982f29338aef8388546",
+                "reference": "b6f1ea8f3573cdcc3d628982f29338aef8388546",
+                "shasum": ""
             },
             "require": {
                 "guzzlehttp/guzzle": "^7.4.5",
@@ -1824,12 +1830,7 @@
                     "FintechSystems\\PayFast\\": "src/"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "Tests\\": "tests/",
-                    "FintechSystems\\PayFast\\Tests\\": "tests"
-                }
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -1847,9 +1848,17 @@
                 "payfast",
                 "subscription-billing"
             ],
-            "transport-options": {
-                "relative": true
-            }
+            "support": {
+                "issues": "https://github.com/fintech-systems/payfast-onsite-subscriptions/issues",
+                "source": "https://github.com/fintech-systems/payfast-onsite-subscriptions/tree/v1.4.1"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/FintechSystems",
+                    "type": "github"
+                }
+            ],
+            "time": "2022-10-15T20:32:39+00:00"
         },
         {
             "name": "fruitcake/php-cors",
@@ -11000,9 +11009,7 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "fintechsystems/payfast-onsite-subscriptions": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
