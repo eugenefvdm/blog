@@ -23,7 +23,7 @@ Route::get('/admin-panel', function () {
     return redirect('/admin');
 })->name('admin');
 
-Route::get('/', [PostController::class, 'index'])
+Route::get('/home', [PostController::class, 'index'])
     ->name('home');
 
 Route::get('/', [PostController::class, 'index'])
