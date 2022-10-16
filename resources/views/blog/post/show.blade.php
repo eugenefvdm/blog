@@ -1,4 +1,4 @@
-<x-guest-layout>
+<x-app-layout>
 
     @include('layouts.breadcrumbs')
 
@@ -27,4 +27,4 @@
 
     @include('code-syntax-highlighting')
 
-</x-guest-layout>
+</x-app-layout>
