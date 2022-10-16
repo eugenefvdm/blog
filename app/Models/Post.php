@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\Status;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 use Illuminate\Support\Facades\Auth;
@@ -55,6 +56,10 @@ class Post extends Model
             ->saveSlugsTo('slug');
     }
 
+    public function getAdminUrlAttribute() {
+        return "/admin/posts/{$this->slug}/edit";
+    }
+
     public function getContentAttribute()
     {
         if ($this->excerpt) {
@@ -64,8 +69,27 @@ class Post extends Model
         return $this->body;
     }
 
+    public function getFormattedTagsAttribute() {
+        $html = "";
+        
+        foreach($this->tags as $tag) {
+            $html .= "<a href='/tag/$tag'>$tag</a>, ";
+        }
+
+        return substr($html, 0, -2);
+    }
+
     public function getImageAttribute() {
         return '/storage/' . $this->featured_image;
+    }
+
+    public function getUrlAttribute() {
+        return "/{$this->category->slug}/{$this->slug}";
+    }
+
+    public function scopePublished($query)
+    {
+        $query->whereStatus(Status::PUBLISHED)->latest();
     }
     
     public function category()

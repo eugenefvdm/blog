@@ -16,7 +16,9 @@ class CategoryController extends Controller
     public function show(Category $category)
     {
         $seo = $category->seo;
+
+        $posts = $category->posts;
         
-        return view('blog.category.show', compact('category','seo'));
+        return view('blog.category.show', compact('category','seo', 'posts'));
     }
 }

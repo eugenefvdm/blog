@@ -1,5 +1,13 @@
 ## Changelog
 
+v0.0.2 - 16-10-2022
+
+- Added category and tags pages and hyperlinking for tags
+- Published Jetstream Livewire componenets and updated logo
+- Added User resource to Filament
+- Fixed route key for tag model
+- Added soft deletes to users table
+
 v0.0.1 - 16-10-2022
 
 - Added Prism code highlighting

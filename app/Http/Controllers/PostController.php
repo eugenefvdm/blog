@@ -12,7 +12,7 @@ class PostController extends Controller
 
     public function index()
     {
-        $posts = Post::whereStatus(Status::PUBLISHED)->latest()->get();
+        $posts = Post::published()->get();
 
         return view('blog.index', compact('posts'));
     }

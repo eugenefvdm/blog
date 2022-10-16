@@ -13,18 +13,24 @@ class Tag extends Model
     use HasSlug;
 
     protected $fillable = [
-        'title',        
-        'description',        
+        'title',
+        'description',
     ];
-    
-    public function getSlugOptions() : SlugOptions
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
+    public function getSlugOptions(): SlugOptions
     {
         return SlugOptions::create()
             ->generateSlugsFrom('title')
             ->saveSlugsTo('slug');
     }
 
-    public function posts() {
+    public function posts()
+    {
         return $this->belongsToMany(Post::class);
     }
 }

@@ -19,8 +19,19 @@
                         {!! $post->body !!}
                     </p>
                 </div>
+                <div class="text-sm">
+                    @if ($post->tags)
+                        <div>
+                            Tagged: {!! $post->formattedTags !!}
+                        </div>
+                    @endif
+                    <div>
+                        Updated: {{ $post->updated_at->diffForHumans() }}
+                    </div>
+                </div>
             </article>
         </div>
+
     </main>
 
     @include('section.footer-small')

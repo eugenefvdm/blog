@@ -5,7 +5,7 @@
             @if ($post->featured_image)
                 <div class="flex-shrink-0">
 
-                    <a href="/{{ $post->category->slug }}/{{ $post->slug }}">
+                    <a href="{{ $post->url }}">
                         <img class="h-48 w-full object-cover" src="{{ $post->image }}" alt="">
                     </a>
                 </div>
@@ -19,15 +19,15 @@
                     </p>
                     <div class="mt-2 block">
                         <p class="truncate text-xl font-semibold text-gray-900">
-                            <a href="/{{ $post->category->slug }}/{{ $post->slug }}" class="hover:underline">
+                            <a href="{{ $post->url }}" class="hover:underline">
                                 {{ $post->title }}
                             </a>
                         </p>
                         <p class="line-clamp-3 mt-3 text-base text-gray-500">{!! $post->content !!}</p>
 
-                        <a class="mt-2 text-sm hover:underline" href="/{{ $post->category->slug }}/{{ $post->slug }}"
-                            class="text-sm">Read
-                            more...</a>
+                        <a class="mt-2 text-sm hover:underline" href="{{ $post->url }}">                            
+                            Read more...
+                        </a>
 
                     </div>
                 </div>
@@ -50,6 +50,11 @@
                         </div>
                     </div>
                 </div>
+                @auth
+                    <div class="text-right">
+                        <a class="text-xs" href='{{ $post->adminUrl }}'>edit</a>
+                    </div>
+                @endauth
             </div>
         </div>
     @endforeach

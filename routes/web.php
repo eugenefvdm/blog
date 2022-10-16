@@ -3,6 +3,7 @@
 use App\Enums\Pricing;
 use App\Enums\Features;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TagController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CategoryController;
 
@@ -31,6 +32,9 @@ Route::get('/', [PostController::class, 'index'])
 
 Route::get('/category/{category}', [CategoryController::class, 'show'])
     ->name('category');
+
+Route::get('/tag/{tag}', [TagController::class, 'show'])
+    ->name('tag');
 
 Route::get('/{category}/{post}', [PostController::class, 'show'])
     ->name('post');

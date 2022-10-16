@@ -11,9 +11,11 @@
         <div class="relative mx-auto max-w-7xl">
 
             <div class="text-center">
-                <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{{ $category->title }}</h2>
+                <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+                    {{ $tag->title }}
+                </h2>
                 <p class="mx-auto mt-3 max-w-2xl text-xl text-gray-500 sm:mt-4">
-                    {{ $category->description }}
+                    {{ $tag->description }}
                 </p>
             </div>
 

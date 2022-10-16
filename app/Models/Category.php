@@ -10,19 +10,19 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Category extends Model
 {
     use HasFactory;
-    use HasSlug;    
+    use HasSlug;
 
     protected $fillable = [
-        'title',        
-        'description',        
+        'title',
+        'description',
     ];
 
     public function getRouteKeyName()
     {
         return 'slug';
     }
-    
-    public function getSlugOptions() : SlugOptions
+
+    public function getSlugOptions(): SlugOptions
     {
         return SlugOptions::create()
             ->generateSlugsFrom('title')
