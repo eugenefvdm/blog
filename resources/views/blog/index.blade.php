@@ -22,7 +22,7 @@
                             <div class="flex-shrink-0">
 
                                 <a href="/{{ $post->category->slug }}/{{ $post->slug }}">
-                                    <img class="h-48 w-full object-cover" src="{{ $post->featured_image }}"
+                                    <img class="h-48 w-full object-cover" src="{{ $post->image }}"
                                         alt="">
                                 </a>
                             </div>
