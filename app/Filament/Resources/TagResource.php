@@ -25,10 +25,7 @@ class TagResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('title')
                     ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('slug')
-                    ->required()
-                    ->maxLength(255),
+                    ->maxLength(255),                
                 Forms\Components\Textarea::make('description')
                     ->maxLength(65535),
             ]);

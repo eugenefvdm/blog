@@ -12,23 +12,25 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        
+        <!-- Styles -->
+        @livewireStyles
 
+        <!-- PayFast -->
         @if (config('payfast.testmode') == true)
             <!-- PayFast Test Mode -->
             <script src="https://sandbox.payfast.co.za/onsite/engine.js" defer></script>
         @else
             <script src="https://www.payfast.co.za/onsite/engine.js" defer></script>
-        @endif        
-
-        <!-- Styles -->
-        @livewireStyles
+        @endif
+        
     </head>
     <body class="font-sans antialiased">
         <x-jet-banner />
 
         <div class="min-h-screen bg-gray-100">
             @auth
-            @livewire('navigation-menu')
+                @livewire('navigation-menu')
             @endauth
 
             <!-- Page Heading -->

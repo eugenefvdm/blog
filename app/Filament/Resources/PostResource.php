@@ -19,6 +19,8 @@ use Illuminate\Database\Eloquent\Collection;
 use App\Filament\Resources\PostResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\PostResource\RelationManagers;
+use pxlrbt\FilamentExcel\Actions\Tables\ExportAction;
+use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction;
 
 class PostResource extends Resource
 {
@@ -38,6 +40,10 @@ class PostResource extends Resource
                     ->options(Category::all()->pluck('title', 'id'))
                     ->searchable()
                     ->required(),
+                Forms\Components\RichEditor::make('excerpt')
+                    ->maxLength(255),
+                Forms\Components\Textarea::make('description')
+                    ->maxLength(160),
                 Forms\Components\RichEditor::make('body')
                     ->columnSpan(2)
                     ->required(),
@@ -45,7 +51,7 @@ class PostResource extends Resource
                     ->multiple()
                     ->options(Tag::all()->pluck('title', 'title')),
                 Forms\Components\FileUpload::make('featured_image'),
-                Forms\Components\Select::make('status')                    
+                Forms\Components\Select::make('status')
                     ->options(Status::options())
                     ->default(Status::PUBLISHED),
             ]);
@@ -58,10 +64,7 @@ class PostResource extends Resource
                 Tables\Columns\ImageColumn::make('featured_image'),
                 Tables\Columns\TextColumn::make('title')->wrap(),
                 Tables\Columns\TextColumn::make('category.title'),                
-                // Tables\Columns\TextColumn::make('tags'),
-                Tables\Columns\TextColumn::make('status'),
-                // Tables\Columns\TextColumn::make('user.name')
-                //     ->label('Author'),
+                Tables\Columns\TextColumn::make('status'),                
                 Tables\Columns\TextColumn::make('created_at')->dateTime(),
             ])
             ->filters([
@@ -70,23 +73,25 @@ class PostResource extends Resource
             ->actions([
                 Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
+                
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
                 Tables\Actions\RestoreBulkAction::make(),
                 Tables\Actions\ForceDeleteBulkAction::make(),
+                ExportBulkAction::make(),
                 Tables\Actions\BulkAction::make('updateStatus')
-                ->action(function (Collection $records, array $data): void {
-                    foreach ($records as $record) {
-                        $record->status = $data['status'];
-                        $record->save();
-                    }
-                })
-                ->form([
-                    Forms\Components\Select::make('status')                        
-                        ->options(Status::options())
-                        ->required(),
-                ])
+                    ->action(function (Collection $records, array $data): void {
+                        foreach ($records as $record) {
+                            $record->status = $data['status'];
+                            $record->save();
+                        }
+                    })
+                    ->form([
+                        Forms\Components\Select::make('status')
+                            ->options(Status::options())
+                            ->required(),
+                    ])
             ]);
     }
 
@@ -114,4 +119,8 @@ class PostResource extends Resource
                 SoftDeletingScope::class,
             ]);
     }
+
+   
+
+    
 }

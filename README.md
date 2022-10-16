@@ -6,6 +6,10 @@ Demo:
 
 https://blogdemo.fintechsystems.net
 
+## Changelog
+
+See CHANGELOG.md for recent chances.
+
 ## Using PayFast
 
 Prerequitsies:

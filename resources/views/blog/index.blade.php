@@ -40,10 +40,12 @@
                                     {{ $post->title }}
                                     </a>
                                     </p>
-                                    <p class="line-clamp-3 mt-3 text-base text-gray-500">{!! $post->body !!}</p>
-                                    <a class="mt-1 text-sm hover:underline"
+                                    <p class="line-clamp-3 mt-3 text-base text-gray-500">{!! $post->content !!}</p>
+
+                                    <a class="mt-2 text-sm hover:underline"
                                         href="/{{ $post->category->slug }}/{{ $post->slug }}" class="text-sm">Read
                                         more...</a>
+
                                 </div>
                             </div>
                             <div class="mt-6 flex items-center">

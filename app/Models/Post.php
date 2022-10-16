@@ -23,11 +23,13 @@ class Post extends Model
 
     protected $fillable = [
         'title',
+        'excerpt',
+        'description',
         'body',
         'category_id',
         'tags',
         'featured_image',
-        'status',
+        'status',        
     ];
     
     protected static function boot()
@@ -51,6 +53,15 @@ class Post extends Model
         return SlugOptions::create()
             ->generateSlugsFrom('title')
             ->saveSlugsTo('slug');
+    }
+
+    public function getContentAttribute()
+    {
+        if ($this->excerpt) {
+            return $this->excerpt;
+        }
+
+        return $this->body;
     }
 
     public function getImageAttribute() {
