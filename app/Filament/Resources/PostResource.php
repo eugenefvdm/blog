@@ -50,12 +50,12 @@ class PostResource extends Resource
                 Forms\Components\Select::make('tags')
                     ->multiple()
                     ->options(Tag::all()->pluck('title', 'title')),
-                Forms\Components\FileUpload::make('featured_image')
-                    ->disk('public')
-                    ->directory('images'),
                 Forms\Components\Select::make('status')
                     ->options(Status::options())
                     ->default(Status::PUBLISHED),
+                Forms\Components\FileUpload::make('featured_image')
+                    ->disk('public')
+                    ->directory('images'),                
             ]);
     }
 

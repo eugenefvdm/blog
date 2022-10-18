@@ -11,8 +11,8 @@ class BlogSettings extends Settings
     public $twitter_username;
     public $enable_breadcrumbs;
     public $enable_rss;    
-    public string $copyright;    
-            
+    public string $copyright;
+                
     public static function group(): string
     {
         return 'blog';
