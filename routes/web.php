@@ -28,16 +28,16 @@ Route::get('/home', [PostController::class, 'index'])
     ->name('home');
 
 Route::get('/', [PostController::class, 'index'])
-    ->name('blog');
+    ->name('blog.index');
 
 Route::get('/category/{category}', [CategoryController::class, 'show'])
-    ->name('category');
+    ->name('blog.category');
 
 Route::get('/tag/{tag}', [TagController::class, 'show'])
-    ->name('tag');
+    ->name('blog.tag');
 
 Route::get('/{category}/{post}', [PostController::class, 'show'])
-    ->name('post');
+    ->name('blog.post.show');
 
 Route::get('/sponsor', function () {
     return view('sponsor', [

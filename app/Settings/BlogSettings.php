@@ -8,11 +8,12 @@ class BlogSettings extends Settings
 {
     public string $title;
     public string $subtitle;
-    public $twitter_username;
-    public $enable_breadcrumbs;
-    public $enable_rss;    
-    public string $copyright;
-                
+    public ?string $google_analytics_tag;    
+    public ?string $twitter_username;        
+    public bool $enable_breadcrumbs;
+    public bool $enable_rss;    
+    public string $small_footer;
+                            
     public static function group(): string
     {
         return 'blog';

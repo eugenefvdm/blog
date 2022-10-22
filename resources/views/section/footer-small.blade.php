@@ -3,7 +3,7 @@
       <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8">
       <div class="text-center">          
           <span class="block text-sm text-center text-gray-500 dark:text-gray-400">
-          {!! App\Services\Blog::copyright() !!}          
+          {!! App\Services\Blog::small_footer() !!}          
           </span>
           <ul class="flex justify-center space-x-5">              
               <li>

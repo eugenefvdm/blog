@@ -44,6 +44,28 @@ class PostSeeder extends Seeder
             'slug' => Str::slug($title2),
             'body' => $faker->paragraph(5),
             'description' => $faker->paragraph(1),
+            'status' => Status::PUBLISHED,
+            'featured_image' => 'Kl77IFAZREBJozuNhHXJA3h4SzgCkJ-metaZGFpc2llcy53ZWJw-.jpg',            
+        ]);
+
+        Post::create([
+            'user_id' => 3,
+            'category_id' => 3,
+            'title' => $title3,
+            'slug' => Str::slug($title3),
+            'body' => $faker->paragraph(5),
+            'description' => $faker->paragraph(1),
+            'status' => Status::PUBLISHED,
+            'featured_image' => 'pMkAXx5xK2gPEkrFtgDqBX63hHpq7D-metaZmVsaWNpYS1kYWlzeS5qcGc=-.jpg',
+        ]);     
+        
+        Post::create([
+            'user_id' => 2,
+            'category_id' => 2,
+            'title' => $title2,
+            'slug' => Str::slug($title2),
+            'body' => $faker->paragraph(5),
+            'description' => $faker->paragraph(1),
             'status' => Status::UNPUBLISED,
             'featured_image' => 'Kl77IFAZREBJozuNhHXJA3h4SzgCkJ-metaZGFpc2llcy53ZWJw-.jpg',            
         ]);
@@ -57,6 +79,6 @@ class PostSeeder extends Seeder
             'description' => $faker->paragraph(1),
             'status' => Status::DRAFT,
             'featured_image' => 'pMkAXx5xK2gPEkrFtgDqBX63hHpq7D-metaZmVsaWNpYS1kYWlzeS5qcGc=-.jpg',
-        ]);        
+        ]);   
     }
 }

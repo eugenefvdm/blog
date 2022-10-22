@@ -29,6 +29,8 @@ class Settings extends SettingsPage
                 ->label('Blog subtitle')
                 ->required(),
             
+            TextInput::make('google_analytics_tag'),
+            
             TextInput::make('twitter_username'),
 
             Checkbox::make('enable_breadcrumbs')
@@ -37,7 +39,7 @@ class Settings extends SettingsPage
             Checkbox::make('enable_rss')
             ->label('Enable RSS'),
 
-            RichEditor::make('copyright'),
+            RichEditor::make('small_footer'),            
         ];
     }
 }

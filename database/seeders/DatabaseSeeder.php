@@ -18,14 +18,7 @@ class DatabaseSeeder extends Seeder
         $this->call(UserSeeder::class);
 
         $this->call(CategorySeeder::class);
-        Tag::factory()->count(10)->create();
-        $this->call(PostSeeder::class);
-        
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        Tag::factory()->count(3)->create();
+        $this->call(PostSeeder::class);                
     }
 }

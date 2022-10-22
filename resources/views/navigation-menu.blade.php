@@ -5,21 +5,27 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('blog') }}">
+                    <a href="{{ route('blog.index') }}">
                         <x-jet-application-mark class="block h-9 w-auto" />
                     </a>
                 </div>
 
                 <!-- Navigation Links -->                                                                
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('sponsor') }}" :active="request()->routeIs('sponsor')">
-                        {{ __('Sponsor') }}
+                    <x-jet-nav-link href="{{ route('blog.index') }}" :active="request()->routeIs('blog.index')">
+                        {{ __('Blog') }}
                     </x-jet-nav-link>
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('admin') }}" :active="request()->routeIs('admin')">
                         {{ __('Admin Panel') }}
+                    </x-jet-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('sponsor') }}" :active="request()->routeIs('sponsor')">
+                        {{ __('Sponsor') }}
                     </x-jet-nav-link>
                 </div>
 
@@ -149,14 +155,20 @@
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
 
         <div class="pt-2 pb-3 space-y-1">
-            <x-jet-responsive-nav-link href="{{ route('sponsor') }}" :active="request()->routeIs('sponsor')">
-                {{ __('Sponsor') }}
+            <x-jet-responsive-nav-link href="{{ route('blog.index') }}" :active="request()->routeIs('blog.index')">
+                {{ __('Blog') }}
             </x-jet-responsive-nav-link>
         </div>
         
         <div class="pt-2 pb-3 space-y-1">
             <x-jet-responsive-nav-link href="{{ route('admin') }}" :active="request()->routeIs('admin')">
                 {{ __('Admin Panel') }}
+            </x-jet-responsive-nav-link>
+        </div>
+
+        <div class="pt-2 pb-3 space-y-1">
+            <x-jet-responsive-nav-link href="{{ route('sponsor') }}" :active="request()->routeIs('sponsor')">
+                {{ __('Sponsor') }}
             </x-jet-responsive-nav-link>
         </div>
 

@@ -19,8 +19,12 @@ class Settings
         return app(BlogSettings::class)->subtitle;
     }    
 
-    public static function copyright() {
-        return app(BlogSettings::class)->copyright;
+    public static function googleTag() {
+        return app(BlogSettings::class)->google_analytics_tag;
+    }    
+
+    public static function small_footer() {
+        return app(BlogSettings::class)->small_footer;
     }
 
     public static function enableBreadcrumbs() {

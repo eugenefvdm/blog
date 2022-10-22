@@ -4,9 +4,9 @@ namespace App\Services;
 
 class Blog
 {
-    public static function copyright()
+    public static function small_footer()
     {
-        return Settings::copyright();
+        return Settings::small_footer();
     }
 
     public static function enableBreadcrumbs()

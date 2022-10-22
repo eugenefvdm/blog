@@ -3,16 +3,18 @@
 namespace App\Models;
 
 use App\Enums\Status;
+use Spatie\Sitemap\Tags\Url;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Sitemap\Contracts\Sitemapable;
 use RalphJSmit\Laravel\SEO\Support\HasSEO;
 use RalphJSmit\Laravel\SEO\Support\SEOData;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Post extends Model
+class Post extends Model implements Sitemapable
 {
     use HasFactory;
     use SoftDeletes;
@@ -56,6 +58,13 @@ class Post extends Model
             ->saveSlugsTo('slug');
     }
 
+    public function toSitemapTag(): Url | string | array
+    {
+        return route('blog.post.show', [$this, $this->category]);
+    }
+
+    // Getters
+
     public function getAdminUrlAttribute() {
         return "/admin/posts/{$this->slug}/edit";
     }
@@ -87,10 +96,14 @@ class Post extends Model
         return "/{$this->category->slug}/{$this->slug}";
     }
 
+    // Scopes
+
     public function scopePublished($query)
     {
         $query->whereStatus(Status::PUBLISHED)->latest();
     }
+
+    // Relationships
     
     public function category()
     {
