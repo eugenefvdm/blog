@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     
-    <head>
+    <head>    
         @include('google-tag')
 
         <meta charset="utf-8">
@@ -13,21 +13,24 @@
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
 
-        <!-- Scripts -->
+        <!-- Vite Styles & Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+
         
-        
-        <!-- Styles -->
-        @livewireStyles
+        <!-- Feed -->
+        @include('feed::links')
 
         <!-- PayFast -->
         @if (config('payfast.testmode') == true)
-<!-- Test Mode -->
+<!-- * test* -->
         <script src="https://sandbox.payfast.co.za/onsite/engine.js" defer></script>
         @else
         <script src="https://www.payfast.co.za/onsite/engine.js" defer></script>
-        @endif
-        
+        @endif                
+        <!-- Styles -->
+
+        @livewireStyles
+                
     </head>
 
     <body class="font-sans antialiased">

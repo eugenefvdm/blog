@@ -20,7 +20,7 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->string('slug');
             $table->text('body');            
-            $table->string('excerpt')->nullable();
+            $table->string('excerpt');
             $table->json('tags')->nullable(); 
             $table->string('description')->nullable();
             $table->string('featured_image')->nullable();                        

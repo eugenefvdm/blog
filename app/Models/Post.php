@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use App\Enums\Status;
+use Spatie\Feed\Feedable;
+use Spatie\Feed\FeedItem;
 use Spatie\Sitemap\Tags\Url;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
@@ -14,12 +16,12 @@ use RalphJSmit\Laravel\SEO\Support\SEOData;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Post extends Model implements Sitemapable
+class Post extends Model implements Sitemapable, Feedable
 {
     use HasFactory;
     use SoftDeletes;
     use HasSlug;
-    
+
     protected $casts = [
         'tags' => 'array',
     ];
@@ -32,9 +34,9 @@ class Post extends Model implements Sitemapable
         'category_id',
         'tags',
         'featured_image',
-        'status',        
+        'status',
     ];
-    
+
     protected static function boot()
     {
         parent::boot();
@@ -42,8 +44,8 @@ class Post extends Model implements Sitemapable
         static::creating(function ($post) {
             if (auth()->id()) {
                 $post->user_id = auth()->id();
-            }            
-        });        
+            }
+        });
     }
 
     public function getRouteKeyName()
@@ -63,9 +65,27 @@ class Post extends Model implements Sitemapable
         return route('blog.post.show', [$this->category, $this]);
     }
 
+    public function toFeedItem(): FeedItem
+    {
+        return FeedItem::create([
+            'id' => $this->id,
+            'title' => $this->title,
+            'summary' => $this->excerpt,
+            'updated' => $this->updated_at,
+            'link' => $this->url,
+            'authorName' => $this->user->name,
+        ]);
+    }
+
+    public static function getFeedItems()
+    {
+        return Post::published()->get();
+    }
+
     // Getters
 
-    public function getAdminUrlAttribute() {
+    public function getAdminUrlAttribute()
+    {
         return "/admin/posts/{$this->slug}/edit";
     }
 
@@ -78,21 +98,24 @@ class Post extends Model implements Sitemapable
         return $this->body;
     }
 
-    public function getFormattedTagsAttribute() {
+    public function getFormattedTagsAttribute()
+    {
         $html = "";
-        
-        foreach($this->tags as $tag) {
+
+        foreach ($this->tags as $tag) {
             $html .= "<a href='/tag/$tag'>$tag</a>, ";
         }
 
         return substr($html, 0, -2);
     }
 
-    public function getImageAttribute() {
+    public function getImageAttribute()
+    {
         return '/storage/' . $this->featured_image;
     }
 
-    public function getUrlAttribute() {
+    public function getUrlAttribute()
+    {
         return "/{$this->category->slug}/{$this->slug}";
     }
 
@@ -104,7 +127,7 @@ class Post extends Model implements Sitemapable
     }
 
     // Relationships
-    
+
     public function category()
     {
         return $this->belongsTo(Category::class);

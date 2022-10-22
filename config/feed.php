@@ -11,14 +11,14 @@ return [
              * You can also pass an argument to that method. Note that their key must be the name of the parameter:
              * [App\Model::class, 'getAllFeedItems', 'parameterName' => 'argument']
              */
-            'items' => '',
+            'items' => 'App\Models\Post@getFeedItems',
 
             /*
              * The feed will be available on this url.
              */
-            'url' => '',
-
-            'title' => 'My feed',
+            'url' => '/feed',
+            
+            'title' => config('app.name'),
             'description' => 'The description of the feed.',
             'language' => 'en-US',
 

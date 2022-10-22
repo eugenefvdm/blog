@@ -6,13 +6,29 @@ Demo:
 
 https://eugene.fintechsystems.net
 
+## Features
+
+- SEO friendly
+- Sitemap
+- Easily activate Google Analytics and Google Search Console
+- Beautiful admin panel based on Filamentphp
+- RSS Feeds
+
 ## Google Analytics
 
-Install Google Analytics and configure the admin panel. Once you have the Google Analytics code proceed to activating Google Search Console.
+Create a Google Analytics UA property and then and then add the GA- setting in the admin panel. Once you have added the GA- code proceed to Google Search Console which will automatically detect ownership.
 
 ## Sitemap
 
 The sitemap is available at /sitemap.xml
+
+## Feeds
+
+The feeds are available at /feed
+
+## Blog Posts
+
+Please note when creating Blog posts, the excerpt field is required. This is to satisfy both design and feed requirements. 
 
 ## Adding new settings
 

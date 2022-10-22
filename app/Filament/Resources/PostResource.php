@@ -41,7 +41,8 @@ class PostResource extends Resource
                     ->searchable()
                     ->required(),
                 Forms\Components\RichEditor::make('excerpt')
-                    ->maxLength(255),
+                    ->maxLength(255)
+                    ->required(),
                 Forms\Components\Textarea::make('description')
                     ->maxLength(160),
                 Forms\Components\RichEditor::make('body')
