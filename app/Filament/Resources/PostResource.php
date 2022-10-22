@@ -39,11 +39,14 @@ class PostResource extends Resource
                 Forms\Components\TextInput::make('title')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\Select::make('category_id')
-                    ->label('Category')
-                    ->options(Category::all()->pluck('title', 'id'))
-                    ->searchable()
-                    ->required(),
+                Forms\Components\Select::make('categoryId')
+                    ->required()
+                    ->relationship('category', 'title')
+                    ->createOptionForm([
+                        Forms\Components\TextInput::make('title')
+                            ->required(),
+                        Forms\Components\TextInput::make('description')
+                    ]),
                 Forms\Components\RichEditor::make('excerpt')
                     ->hint('Displayed on summaries and feeds')
                     ->maxLength(255)
@@ -57,8 +60,8 @@ class PostResource extends Resource
                     ->minCharacters(155)
                     ->maxCharacters(160)
                     ->maxLength(255),
-                
-                    TiptapEditor::make('body')
+
+                TiptapEditor::make('body')
                     ->columnSpan('full')
                     ->required(),
 
@@ -67,9 +70,14 @@ class PostResource extends Resource
                     ->disk('public')
                     ->directory('images'),
 
-                Forms\Components\Select::make('tags')
+                Forms\Components\Select::make('tagId')
                     ->multiple()
-                    ->options(Tag::all()->pluck('title', 'title')),
+                    ->relationship('tags', 'title')
+                    ->createOptionForm([
+                        Forms\Components\TextInput::make('title')
+                            ->required(),
+                        Forms\Components\TextInput::make('description')
+                    ]),
 
                 Forms\Components\Select::make('status')
                     ->options(Status::options())

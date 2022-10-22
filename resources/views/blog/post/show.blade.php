@@ -28,6 +28,11 @@
                     <div>
                         Updated: {{ $post->updated_at->diffForHumans() }}
                     </div>
+                    @auth
+                    <div class="text-right">
+                        <a class="text-xs" href='{{ $post->adminUrl }}'>edit</a>
+                    </div>
+                    @endauth
                 </div>
             </article>
         </div>
