@@ -37,7 +37,6 @@ class PostResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('title')
-                    ->searchable()
                     ->required()
                     ->maxLength(255),
                 Forms\Components\Select::make('category_id')
@@ -58,17 +57,25 @@ class PostResource extends Resource
                     ->minCharacters(155)
                     ->maxCharacters(160)
                     ->maxLength(255),
-                TiptapEditor::make('body')
+                
+                    TiptapEditor::make('body')
+                    ->columnSpan('full')
                     ->required(),
+
+                Forms\Components\FileUpload::make('featured_image')
+                    ->columnSpan('full')
+                    ->disk('public')
+                    ->directory('images'),
+
                 Forms\Components\Select::make('tags')
                     ->multiple()
                     ->options(Tag::all()->pluck('title', 'title')),
+
                 Forms\Components\Select::make('status')
                     ->options(Status::options())
                     ->default(Status::PUBLISHED),
-                Forms\Components\FileUpload::make('featured_image')
-                    ->disk('public')
-                    ->directory('images'),
+
+
             ]);
     }
 
@@ -78,6 +85,7 @@ class PostResource extends Resource
             ->columns([
                 Tables\Columns\ImageColumn::make('featured_image'),
                 Tables\Columns\TextColumn::make('title')
+                    ->searchable()
                     ->wrap(),
                 Tables\Columns\TextColumn::make('category.title')
                     ->sortable(),
