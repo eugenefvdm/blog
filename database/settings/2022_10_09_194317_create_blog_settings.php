@@ -1,6 +1,5 @@
 <?php
 
-use App\Services\Settings;
 use Spatie\LaravelSettings\Migrations\SettingsMigration;
 
 class CreateBlogSettings extends SettingsMigration
