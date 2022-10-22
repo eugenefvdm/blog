@@ -96,13 +96,18 @@ class PostResource extends Resource
                     ->searchable()
                     ->wrap(),
                 Tables\Columns\TextColumn::make('category.title')
+                    ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('status')
+                    ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable(),
+                    ->sortable()
+                    ->dateTime(),
+
             ])
+            ->reorderable()
+            ->defaultSort('updated_at', 'desc')
             ->filters([
                 Tables\Filters\TrashedFilter::make(),
             ])
@@ -128,7 +133,7 @@ class PostResource extends Resource
                             ->options(Status::options())
                             ->required(),
                     ])
-            ])->defaultSort('updated_at', 'desc');
+            ]);
     }
 
     public static function getPages(): array

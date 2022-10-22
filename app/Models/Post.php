@@ -9,19 +9,22 @@ use Spatie\Sitemap\Tags\Url;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 use Illuminate\Support\Facades\Auth;
+use Spatie\EloquentSortable\Sortable;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Sitemap\Contracts\Sitemapable;
 use RalphJSmit\Laravel\SEO\Support\HasSEO;
+use Spatie\EloquentSortable\SortableTrait;
 use RalphJSmit\Laravel\SEO\Support\SEOData;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Post extends Model implements Sitemapable, Feedable
+class Post extends Model implements Sortable, Sitemapable, Feedable
 {
     use HasFactory;
     use SoftDeletes;
     use HasSlug;
-
+    use SortableTrait;
+    
     protected $casts = [
         'tags' => 'array',
     ];
@@ -59,7 +62,7 @@ class Post extends Model implements Sitemapable, Feedable
             ->generateSlugsFrom('title')
             ->saveSlugsTo('slug');
     }
-
+    
     public function toSitemapTag(): Url | string | array
     {
         return route('blog.post.show', [$this->category, $this]);
