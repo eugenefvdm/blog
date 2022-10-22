@@ -60,7 +60,7 @@ class Post extends Model implements Sitemapable
 
     public function toSitemapTag(): Url | string | array
     {
-        return route('blog.post.show', [$this, $this->category]);
+        return route('blog.post.show', [$this->category, $this]);
     }
 
     // Getters
