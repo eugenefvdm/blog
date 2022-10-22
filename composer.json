@@ -7,6 +7,7 @@
     "require": {
         "php": "^8.0.2",
         "artesaos/seotools": "^1.0",
+        "awcodes/filament-tiptap-editor": "^1.0",
         "bezhansalleh/filament-google-analytics": "^0.0.2",
         "diglactic/laravel-breadcrumbs": "^8.0",
         "doctrine/dbal": "^3.4",
@@ -20,6 +21,7 @@
         "laravel/tinker": "^2.7",
         "livewire/livewire": "^2.5",
         "maatwebsite/excel": "^3.1",
+        "martin-ro/filament-charcount-field": "^0.1.5",
         "psr/simple-cache": "^2.0",
         "pxlrbt/filament-excel": "^1.1",
         "saade/filament-laravel-log": "^1.1",

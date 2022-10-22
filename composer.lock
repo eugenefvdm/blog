@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "58f2bc97aaca1cf07e56c2dfc79a26b7",
+    "content-hash": "0692cbab6c736758fff37c148586ab82",
     "packages": [
         {
             "name": "akaunting/laravel-money",
@@ -144,6 +144,63 @@
                 "source": "https://github.com/artesaos/seotools"
             },
             "time": "2022-09-28T13:41:57+00:00"
+        },
+        {
+            "name": "awcodes/filament-tiptap-editor",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/awcodes/filament-tiptap-editor.git",
+                "reference": "348ea75d17ac84e57d0978102c4a30bca32e83cf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/awcodes/filament-tiptap-editor/zipball/348ea75d17ac84e57d0978102c4a30bca32e83cf",
+                "reference": "348ea75d17ac84e57d0978102c4a30bca32e83cf",
+                "shasum": ""
+            },
+            "require": {
+                "filament/filament": "^2.0",
+                "intervention/image": "^2.7",
+                "php": "^8.0.2",
+                "spatie/laravel-package-tools": "^1.9.2"
+            },
+            "type": "package",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "FilamentTiptapEditor\\FilamentTiptapEditorServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "FilamentTiptapEditor\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Adam Weston",
+                    "email": "awcodes1@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A Tiptap ingtegration for Filament Admin/Forms.",
+            "keywords": [
+                "filament",
+                "framework",
+                "laravel",
+                "tiptap"
+            ],
+            "support": {
+                "issues": "https://github.com/awcodes/filament-tiptap-editor/issues",
+                "source": "https://github.com/awcodes/filament-tiptap-editor/tree/v1.0.2"
+            },
+            "time": "2022-10-21T13:07:09+00:00"
         },
         {
             "name": "bacon/bacon-qr-code",
@@ -4236,6 +4293,71 @@
                 "source": "https://github.com/MarkBaker/PHPMatrix/tree/3.0.0"
             },
             "time": "2021-07-01T19:01:15+00:00"
+        },
+        {
+            "name": "martin-ro/filament-charcount-field",
+            "version": "0.1.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/martin-ro/filament-charcount-field.git",
+                "reference": "b07560ae2037903f3ec62deeb0768efb8d03c822"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/martin-ro/filament-charcount-field/zipball/b07560ae2037903f3ec62deeb0768efb8d03c822",
+                "reference": "b07560ae2037903f3ec62deeb0768efb8d03c822",
+                "shasum": ""
+            },
+            "require": {
+                "filament/filament": "^2.10",
+                "illuminate/contracts": "^8.73|^9.0",
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "nunomaduro/collision": "^5.10|^6.1",
+                "orchestra/testbench": "^6.22|^7.0",
+                "pestphp/pest": "^1.21",
+                "pestphp/pest-plugin-laravel": "^1.1",
+                "phpunit/phpunit": "^9.5",
+                "spatie/laravel-ray": "^1.26"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "MartinRo\\FilamentCharcountField\\FilamentCharcountFieldServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "MartinRo\\FilamentCharcountField\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Martin Ro",
+                    "email": "mail@martin.ph",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Filament fields with character count.",
+            "homepage": "https://github.com/martin-ro/filament-charcount-field",
+            "keywords": [
+                "filament",
+                "filament-charcount-field",
+                "laravel",
+                "martin-ro"
+            ],
+            "support": {
+                "issues": "https://github.com/martin-ro/filament-charcount-field/issues",
+                "source": "https://github.com/martin-ro/filament-charcount-field/tree/0.1.5"
+            },
+            "time": "2022-06-03T04:51:35+00:00"
         },
         {
             "name": "masterminds/html5",

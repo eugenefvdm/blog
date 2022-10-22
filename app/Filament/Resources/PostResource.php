@@ -13,14 +13,16 @@ use Filament\Resources\Form;
 use Filament\Resources\Table;
 use Filament\Resources\Resource;
 use Filament\Forms\Components\Select;
+use FilamentTiptapEditor\TiptapEditor;
 use Filament\Forms\Components\TextInput;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use App\Filament\Resources\PostResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use App\Filament\Resources\PostResource\RelationManagers;
 use pxlrbt\FilamentExcel\Actions\Tables\ExportAction;
+use App\Filament\Resources\PostResource\RelationManagers;
 use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction;
+use MartinRo\FilamentCharcountField\Components\CharcountedTextarea;
 
 class PostResource extends Resource
 {
@@ -41,12 +43,19 @@ class PostResource extends Resource
                     ->searchable()
                     ->required(),
                 Forms\Components\RichEditor::make('excerpt')
+                    ->hint('Displayed on summaries and feeds')
                     ->maxLength(255)
                     ->required(),
-                Forms\Components\Textarea::make('description')
-                    ->maxLength(160),
-                Forms\Components\RichEditor::make('body')
-                    ->columnSpan(2)
+                CharcountedTextarea::make('description')
+                    ->label('Description')
+                    ->rows(4)
+                    ->hintIcon('heroicon-o-code')
+                    ->hint('Meta description tag in header')
+                    ->helperText('Used by Google search previews and should be ~155-160 characters.')
+                    ->minCharacters(155)
+                    ->maxCharacters(160)
+                    ->maxLength(255),
+                TiptapEditor::make('body')
                     ->required(),
                 Forms\Components\Select::make('tags')
                     ->multiple()
@@ -56,7 +65,7 @@ class PostResource extends Resource
                     ->default(Status::PUBLISHED),
                 Forms\Components\FileUpload::make('featured_image')
                     ->disk('public')
-                    ->directory('images'),                
+                    ->directory('images'),
             ]);
     }
 
@@ -66,8 +75,8 @@ class PostResource extends Resource
             ->columns([
                 Tables\Columns\ImageColumn::make('featured_image'),
                 Tables\Columns\TextColumn::make('title')->wrap(),
-                Tables\Columns\TextColumn::make('category.title'),                
-                Tables\Columns\TextColumn::make('status'),                
+                Tables\Columns\TextColumn::make('category.title'),
+                Tables\Columns\TextColumn::make('status'),
                 Tables\Columns\TextColumn::make('created_at')->dateTime(),
             ])
             ->filters([
@@ -76,7 +85,7 @@ class PostResource extends Resource
             ->actions([
                 Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
-                
+
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
@@ -95,14 +104,7 @@ class PostResource extends Resource
                             ->options(Status::options())
                             ->required(),
                     ])
-            ]);
-    }
-
-    public static function getRelations(): array
-    {
-        return [
-            RelationManagers\CategoryRelationManager::class,
-        ];
+            ])->defaultSort('updated_at');
     }
 
     public static function getPages(): array
@@ -122,8 +124,4 @@ class PostResource extends Resource
                 SoftDeletingScope::class,
             ]);
     }
-
-   
-
-    
 }
