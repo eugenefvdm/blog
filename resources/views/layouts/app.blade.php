@@ -22,14 +22,14 @@
 
         <!-- PayFast -->
         @if (config('payfast.testmode') == true)
-        <!-- Test Mode -->
-            <script src="https://sandbox.payfast.co.za/onsite/engine.js" defer></script>
+    <!-- Test Mode -->
+        <script src="https://sandbox.payfast.co.za/onsite/engine.js" defer></script>
         @else
-            <script src="https://www.payfast.co.za/onsite/engine.js" defer></script>
+        <script src="https://www.payfast.co.za/onsite/engine.js" defer></script>
         @endif
         
     </head>
-    
+
     <body class="font-sans antialiased">
         <x-jet-banner />
 
