@@ -46,7 +46,7 @@ Route::get('/contact', function () {
 })->name('contact');
 
 Route::post('/contact/confirmation', function () {
-    Mail::to('info@bestagent.co.za')
+    Mail::to('eugene@fintechsystems.net')
         ->send(new ContactForm(request()->all()));
 
     return view('contact-confirmation');
