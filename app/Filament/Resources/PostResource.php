@@ -30,11 +30,14 @@ class PostResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
+    protected static ?string $recordTitleAttribute = 'title';
+
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
                 Forms\Components\TextInput::make('title')
+                    ->searchable()
                     ->required()
                     ->maxLength(255),
                 Forms\Components\Select::make('category_id')
@@ -74,10 +77,15 @@ class PostResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\ImageColumn::make('featured_image'),
-                Tables\Columns\TextColumn::make('title')->wrap(),
-                Tables\Columns\TextColumn::make('category.title'),
-                Tables\Columns\TextColumn::make('status'),
-                Tables\Columns\TextColumn::make('created_at')->dateTime(),
+                Tables\Columns\TextColumn::make('title')
+                    ->wrap(),
+                Tables\Columns\TextColumn::make('category.title')
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('status')
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('updated_at')
+                    ->dateTime()
+                    ->sortable(),
             ])
             ->filters([
                 Tables\Filters\TrashedFilter::make(),
@@ -104,7 +112,7 @@ class PostResource extends Resource
                             ->options(Status::options())
                             ->required(),
                     ])
-            ])->defaultSort('updated_at');
+            ])->defaultSort('updated_at', 'desc');
     }
 
     public static function getPages(): array
