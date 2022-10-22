@@ -104,9 +104,10 @@ class PostResource extends Resource
                 Tables\Columns\TextColumn::make('updated_at')
                     ->sortable()
                     ->dateTime(),
-
+                // Tables\Columns\TextColumn::make('sort')                    
+                //     ->sortable(),
             ])
-            ->reorderable()
+            // ->reorderable()
             ->defaultSort('updated_at', 'desc')
             ->filters([
                 Tables\Filters\TrashedFilter::make(),

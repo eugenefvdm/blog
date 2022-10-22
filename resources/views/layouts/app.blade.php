@@ -38,7 +38,9 @@
 
         <div class="min-h-screen bg-gray-100">
             @auth
-                @livewire('navigation-menu')
+                @livewire('auth-navigation-menu')
+            @else
+                @livewire('guest-navigation-menu')
             @endauth
 
             <!-- Page Heading -->

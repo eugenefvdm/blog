@@ -2,6 +2,8 @@
 
 use App\Enums\Pricing;
 use App\Enums\Features;
+use App\Mail\ContactForm;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\PostController;
@@ -38,6 +40,17 @@ Route::get('/tag/{tag}', [TagController::class, 'show'])
 
 Route::get('/{category}/{post}', [PostController::class, 'show'])
     ->name('blog.post.show');
+
+Route::get('/contact', function () {
+    return view('contact');
+})->name('contact');
+
+Route::post('/contact/confirmation', function () {
+    Mail::to('info@bestagent.co.za')
+        ->send(new ContactForm(request()->all()));
+
+    return view('contact-confirmation');
+})->name('contact-confirmation');
 
 Route::get('/sponsor', function () {
     return view('sponsor', [
