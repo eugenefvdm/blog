@@ -25,7 +25,7 @@ class Pricing
                     'title' => 'Business',
                     'monthly' => 199,
                     'yearly' => 2189,
-                    'tagline' => "Keep track of up to 10 accounts.",
+                    'tagline' => 'Keep track of up to 10 accounts.',
                     'features' => [
                         'Import up to 10 accounts',
                         'Export data and tags',
@@ -47,8 +47,8 @@ class Pricing
                     ],
                     'cta' => 'Start Free Trial',
                     'mostPopular' => false,
-                ]
-            ]
+                ],
+            ],
         ];
     }
 }

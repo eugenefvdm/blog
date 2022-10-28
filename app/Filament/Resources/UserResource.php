@@ -3,7 +3,6 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\UserResource\Pages;
-use App\Filament\Resources\UserResource\RelationManagers;
 use App\Models\User;
 use Filament\Forms;
 use Filament\Resources\Form;
@@ -35,9 +34,9 @@ class UserResource extends Resource
                 Forms\Components\TextInput::make('password')
                     ->password()
                     ->required()
-                    ->maxLength(255),                
+                    ->maxLength(255),
                 Forms\Components\DateTimePicker::make('trial_ends_at'),
-                Forms\Components\TextInput::make('twitter')                    
+                Forms\Components\TextInput::make('twitter')
                     ->maxLength(255),
             ]);
     }
@@ -47,7 +46,7 @@ class UserResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name'),
-                Tables\Columns\TextColumn::make('email'),                                
+                Tables\Columns\TextColumn::make('email'),
                 Tables\Columns\TextColumn::make('trial_ends_at')
                     ->dateTime(),
             ])
@@ -64,14 +63,14 @@ class UserResource extends Resource
                 Tables\Actions\ForceDeleteBulkAction::make(),
             ]);
     }
-    
+
     public static function getRelations(): array
     {
         return [
             //
         ];
     }
-    
+
     public static function getPages(): array
     {
         return [
@@ -80,8 +79,8 @@ class UserResource extends Resource
             'view' => Pages\ViewUser::route('/{record}'),
             'edit' => Pages\EditUser::route('/{record}/edit'),
         ];
-    }    
-    
+    }
+
     public static function getEloquentQuery(): Builder
     {
         return parent::getEloquentQuery()

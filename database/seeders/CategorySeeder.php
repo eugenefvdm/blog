@@ -2,11 +2,10 @@
 
 namespace Database\Seeders;
 
-use Faker\Factory;
 use App\Models\Category;
-use Illuminate\Support\Str;
+use Faker\Factory;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class CategorySeeder extends Seeder
 {
@@ -20,7 +19,7 @@ class CategorySeeder extends Seeder
         $faker = Factory::create();
 
         // Generate three or so random words with a dot
-        $title1 = $faker->word;        
+        $title1 = $faker->word;
         $title2 = $faker->word;
         $title3 = $faker->word;
 
@@ -29,7 +28,7 @@ class CategorySeeder extends Seeder
             'slug' => Str::slug($title1),
             'description' => $faker->paragraph,
         ]);
-        
+
         Category::create([
             'title' => $title2,
             'slug' => Str::slug($title2),
@@ -40,6 +39,6 @@ class CategorySeeder extends Seeder
             'title' => $title3,
             'slug' => Str::slug($title3),
             'description' => $faker->paragraph,
-        ]);        
+        ]);
     }
 }

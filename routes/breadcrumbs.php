@@ -1,8 +1,8 @@
 <?php
 
-use App\Models\Tag;
-use App\Models\Post;
 use App\Models\Category;
+use App\Models\Post;
+use App\Models\Tag;
 use App\Services\Settings;
 use Diglactic\Breadcrumbs\Breadcrumbs;
 use Diglactic\Breadcrumbs\Generator as BreadcrumbTrail;
@@ -25,10 +25,9 @@ Breadcrumbs::for('blog.tag', function (BreadcrumbTrail $trail, Tag $tag) {
 });
 
 Breadcrumbs::for('blog.post.show', function (BreadcrumbTrail $trail, Category $category, Post $post) {
-    $trail->parent('home');    
-        
+    $trail->parent('home');
+
     $trail->push($category->title, route('blog.category', $category));
-    
+
     $trail->push($post->title, route('blog.category', $category));
 });
-
