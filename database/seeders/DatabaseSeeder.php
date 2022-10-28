@@ -19,6 +19,6 @@ class DatabaseSeeder extends Seeder
 
         $this->call(CategorySeeder::class);
         Tag::factory()->count(3)->create();
-        // $this->call(PostSeeder::class);                
+        // $this->call(PostSeeder::class);
     }
 }

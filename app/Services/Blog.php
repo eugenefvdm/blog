@@ -24,7 +24,7 @@ class Blog
     public static function twitterUsername()
     {
         if (Settings::twitterUsername()) {
-            return 'https://twitter.com/' . Settings::twitterUsername();
+            return 'https://twitter.com/'.Settings::twitterUsername();
         }
     }
 

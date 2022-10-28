@@ -2,28 +2,20 @@
 
 namespace App\Filament\Resources;
 
-use App\Models\Tag;
-use Filament\Forms;
-use App\Models\Post;
-use App\Models\User;
-use Filament\Tables;
 use App\Enums\Status;
-use App\Models\Category;
+use App\Filament\Resources\PostResource\Pages;
+use App\Models\Post;
+use Filament\Forms;
 use Filament\Resources\Form;
-use Filament\Resources\Table;
 use Filament\Resources\Resource;
-use Livewire\TemporaryUploadedFile;
-use Filament\Forms\Components\Select;
+use Filament\Resources\Table;
+use Filament\Tables;
 use FilamentTiptapEditor\TiptapEditor;
-use Filament\Forms\Components\TextInput;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
-use App\Filament\Resources\PostResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use pxlrbt\FilamentExcel\Actions\Tables\ExportAction;
-use App\Filament\Resources\PostResource\RelationManagers;
-use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction;
 use MartinRo\FilamentCharcountField\Components\CharcountedTextarea;
+use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction;
 
 class PostResource extends Resource
 {
@@ -46,7 +38,7 @@ class PostResource extends Resource
                     ->createOptionForm([
                         Forms\Components\TextInput::make('title')
                             ->required(),
-                        Forms\Components\TextInput::make('description')
+                        Forms\Components\TextInput::make('description'),
                     ]),
                 Forms\Components\RichEditor::make('excerpt')
                     ->hint('Displayed on summaries and feeds')
@@ -70,7 +62,7 @@ class PostResource extends Resource
                     ->storeFileNamesIn('attachment_file_names')
                     ->columnSpan('full')
                     ->disk('blog'),
-                    // ->directory('images'),
+                // ->directory('images'),
 
                 Forms\Components\Select::make('tagId')
                     ->multiple()
@@ -78,7 +70,7 @@ class PostResource extends Resource
                     ->createOptionForm([
                         Forms\Components\TextInput::make('title')
                             ->required(),
-                        Forms\Components\TextInput::make('description')
+                        Forms\Components\TextInput::make('description'),
                     ]),
 
                 Forms\Components\Select::make('status')
@@ -105,8 +97,8 @@ class PostResource extends Resource
                     ->sortable(),
                 Tables\Columns\TextColumn::make('updated_at')
                     ->sortable()
-                    ->dateTime(),                
-            ])            
+                    ->dateTime(),
+            ])
             ->defaultSort('updated_at', 'desc')
             ->filters([
                 Tables\Filters\TrashedFilter::make(),
@@ -132,7 +124,7 @@ class PostResource extends Resource
                         Forms\Components\Select::make('status')
                             ->options(Status::options())
                             ->required(),
-                    ])
+                    ]),
             ]);
     }
 

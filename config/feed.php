@@ -17,7 +17,7 @@ return [
              * The feed will be available on this url.
              */
             'url' => '/feed',
-            
+
             'title' => config('app.name'),
             'description' => 'The description of the feed.',
             'language' => 'en-US',

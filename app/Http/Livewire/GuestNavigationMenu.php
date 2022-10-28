@@ -6,7 +6,7 @@ use Livewire\Component;
 
 class GuestNavigationMenu extends Component
 {
-     /**
+    /**
      * The component's listeners.
      *
      * @var array
@@ -14,7 +14,7 @@ class GuestNavigationMenu extends Component
     protected $listeners = [
         'refresh-navigation-menu' => '$refresh',
     ];
-    
+
     public function render()
     {
         return view('livewire.guest-navigation-menu');

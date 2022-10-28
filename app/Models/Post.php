@@ -3,19 +3,18 @@
 namespace App\Models;
 
 use App\Enums\Status;
-
+use App\Traits\ImageCompression;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\EloquentSortable\Sortable;
+use Spatie\EloquentSortable\SortableTrait;
 use Spatie\Feed\Feedable;
 use Spatie\Feed\FeedItem;
+use Spatie\Sitemap\Contracts\Sitemapable;
 use Spatie\Sitemap\Tags\Url;
 use Spatie\Sluggable\HasSlug;
-use App\Traits\ImageCompression;
 use Spatie\Sluggable\SlugOptions;
-use Spatie\EloquentSortable\Sortable;
-use Illuminate\Database\Eloquent\Model;
-use Spatie\Sitemap\Contracts\Sitemapable;
-use Spatie\EloquentSortable\SortableTrait;
-use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Post extends Model implements Sortable, Sitemapable, Feedable
 {
@@ -24,7 +23,7 @@ class Post extends Model implements Sortable, Sitemapable, Feedable
     use HasSlug;
     use SortableTrait;
     use ImageCompression;
-    
+
     protected $casts = [
         'tags' => 'array',
     ];
@@ -36,7 +35,7 @@ class Post extends Model implements Sortable, Sitemapable, Feedable
         'body',
         'category_id',
         'tags',
-        'featured_image',        
+        'featured_image',
         'attachment_file_names',
         'status',
     ];
@@ -45,10 +44,10 @@ class Post extends Model implements Sortable, Sitemapable, Feedable
     {
         parent::boot();
 
-        static::creating(function ($post) {            
+        static::creating(function ($post) {
             if (auth()->id()) {
                 $post->user_id = auth()->id();
-            }            
+            }
         });
     }
 
@@ -63,7 +62,7 @@ class Post extends Model implements Sortable, Sitemapable, Feedable
             ->generateSlugsFrom('title')
             ->saveSlugsTo('slug');
     }
-    
+
     public function toSitemapTag(): Url | string | array
     {
         return route('blog.post.show', [$this->category, $this]);
@@ -104,7 +103,7 @@ class Post extends Model implements Sortable, Sitemapable, Feedable
 
     public function getFormattedTagsAttribute()
     {
-        $html = "";
+        $html = '';
 
         foreach ($this->tags()->get() as $tag) {
             $html .= "<a href='/tag/$tag->title'>$tag->title</a>, ";
@@ -115,7 +114,7 @@ class Post extends Model implements Sortable, Sitemapable, Feedable
 
     public function getImageAttribute()
     {
-        return '/storage/images/' . $this->featured_image;
+        return '/storage/images/'.$this->featured_image;
     }
 
     public function getUrlAttribute()

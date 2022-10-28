@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('profile_photo_path', 2048)->nullable();
             $table->string('twitter')->nullable();
             // $table->softDeletes();
-            $table->timestamps();            
+            $table->timestamps();
         });
     }
 

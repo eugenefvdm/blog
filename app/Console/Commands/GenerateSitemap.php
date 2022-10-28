@@ -33,7 +33,7 @@ class GenerateSitemap extends Command
             ->getSitemap()
             ->add(Post::published()->get())
             ->writeToFile(public_path('sitemap.xml'));
-            
+
         return Command::SUCCESS;
     }
 }
