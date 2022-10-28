@@ -31,12 +31,14 @@ class UserResource extends Resource
                 Forms\Components\TextInput::make('email')
                     ->email()
                     ->required()
-                    ->maxLength(255),                
+                    ->maxLength(255),
                 Forms\Components\TextInput::make('password')
                     ->password()
                     ->required()
                     ->maxLength(255),                
                 Forms\Components\DateTimePicker::make('trial_ends_at'),
+                Forms\Components\TextInput::make('twitter')                    
+                    ->maxLength(255),
             ]);
     }
 

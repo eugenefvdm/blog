@@ -12,6 +12,7 @@ use App\Models\Category;
 use Filament\Resources\Form;
 use Filament\Resources\Table;
 use Filament\Resources\Resource;
+use Livewire\TemporaryUploadedFile;
 use Filament\Forms\Components\Select;
 use FilamentTiptapEditor\TiptapEditor;
 use Filament\Forms\Components\TextInput;
@@ -66,9 +67,10 @@ class PostResource extends Resource
                     ->required(),
 
                 Forms\Components\FileUpload::make('featured_image')
+                    ->storeFileNamesIn('attachment_file_names')
                     ->columnSpan('full')
-                    ->disk('public')
-                    ->directory('images'),
+                    ->disk('blog'),
+                    // ->directory('images'),
 
                 Forms\Components\Select::make('tagId')
                     ->multiple()
@@ -83,7 +85,6 @@ class PostResource extends Resource
                     ->options(Status::options())
                     ->default(Status::PUBLISHED),
 
-
             ]);
     }
 
@@ -91,7 +92,8 @@ class PostResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\ImageColumn::make('featured_image'),
+                Tables\Columns\ImageColumn::make('featured_image')
+                    ->disk('blog'),
                 Tables\Columns\TextColumn::make('title')
                     ->searchable()
                     ->wrap(),
@@ -103,11 +105,8 @@ class PostResource extends Resource
                     ->sortable(),
                 Tables\Columns\TextColumn::make('updated_at')
                     ->sortable()
-                    ->dateTime(),
-                // Tables\Columns\TextColumn::make('sort')                    
-                //     ->sortable(),
-            ])
-            // ->reorderable()
+                    ->dateTime(),                
+            ])            
             ->defaultSort('updated_at', 'desc')
             ->filters([
                 Tables\Filters\TrashedFilter::make(),

@@ -10,4 +10,5 @@
             </div>
         </div>
     </div>
+@include('layouts.seo')
 </x-guest-layout>

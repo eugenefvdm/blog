@@ -1,6 +1,8 @@
-## Changelog
+# Changelog
 
-v0.0.2 - 16-10-2022
+All notable changes to `blog` will be documented in this file.
+
+## v0.0.2 - 16-10-2022
 
 - Added category and tags pages and hyperlinking for tags
 - Published Jetstream Livewire componenets and updated logo
@@ -8,7 +10,7 @@ v0.0.2 - 16-10-2022
 - Fixed route key for tag model
 - Added soft deletes to users table
 
-v0.0.1 - 16-10-2022
+## v0.0.1 - 16-10-2022
 
 - Added Prism code highlighting
 - Added exporting of posts

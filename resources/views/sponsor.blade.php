@@ -1,5 +1,6 @@
 <x-app-layout>
 
-@include('pricing')
+    @include('pricing')
 
+    @include('layouts.seo')
 </x-app-layout>

@@ -1,5 +1,5 @@
 <x-app-layout>
-    
+        
     @include('layouts.breadcrumbs')    
 
     <div class="relative bg-gray-50 px-4 pt-6 pb-20 sm:px-6 lg:px-8 lg:pt-12 lg:pb-28">
@@ -22,4 +22,5 @@
         </div>
     </div>
 
+    @include('layouts.seo')
 </x-app-layout>

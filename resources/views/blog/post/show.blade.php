@@ -20,7 +20,7 @@
                     </p>
                 </div>
                 <div class="text-sm">
-                    @if ($post->tags)
+                    @if ($post->tags())
                         <div>
                             Tagged: {!! $post->formattedTags !!}
                         </div>
@@ -43,4 +43,5 @@
 
     @include('code-syntax-highlighting')
 
+    @include('layouts.seo')            
 </x-app-layout>

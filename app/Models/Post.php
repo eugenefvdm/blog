@@ -3,18 +3,17 @@
 namespace App\Models;
 
 use App\Enums\Status;
+
 use Spatie\Feed\Feedable;
 use Spatie\Feed\FeedItem;
 use Spatie\Sitemap\Tags\Url;
 use Spatie\Sluggable\HasSlug;
+use App\Traits\ImageCompression;
 use Spatie\Sluggable\SlugOptions;
-use Illuminate\Support\Facades\Auth;
 use Spatie\EloquentSortable\Sortable;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Sitemap\Contracts\Sitemapable;
-use RalphJSmit\Laravel\SEO\Support\HasSEO;
 use Spatie\EloquentSortable\SortableTrait;
-use RalphJSmit\Laravel\SEO\Support\SEOData;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -24,6 +23,7 @@ class Post extends Model implements Sortable, Sitemapable, Feedable
     use SoftDeletes;
     use HasSlug;
     use SortableTrait;
+    use ImageCompression;
     
     protected $casts = [
         'tags' => 'array',
@@ -36,7 +36,8 @@ class Post extends Model implements Sortable, Sitemapable, Feedable
         'body',
         'category_id',
         'tags',
-        'featured_image',
+        'featured_image',        
+        'attachment_file_names',
         'status',
     ];
 
@@ -44,10 +45,10 @@ class Post extends Model implements Sortable, Sitemapable, Feedable
     {
         parent::boot();
 
-        static::creating(function ($post) {
+        static::creating(function ($post) {            
             if (auth()->id()) {
                 $post->user_id = auth()->id();
-            }
+            }            
         });
     }
 
@@ -105,8 +106,8 @@ class Post extends Model implements Sortable, Sitemapable, Feedable
     {
         $html = "";
 
-        foreach ($this->tags as $tag) {
-            $html .= "<a href='/tag/$tag'>$tag</a>, ";
+        foreach ($this->tags()->get() as $tag) {
+            $html .= "<a href='/tag/$tag->title'>$tag->title</a>, ";
         }
 
         return substr($html, 0, -2);
@@ -114,7 +115,7 @@ class Post extends Model implements Sortable, Sitemapable, Feedable
 
     public function getImageAttribute()
     {
-        return '/storage/' . $this->featured_image;
+        return '/storage/images/' . $this->featured_image;
     }
 
     public function getUrlAttribute()
