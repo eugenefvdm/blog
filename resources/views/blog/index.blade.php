@@ -1,6 +1,6 @@
 <x-app-layout>
     
-    @section('meta_description', "My Blog is a generic blog platform with a specific focus on speed and SEO.")
+    @section('meta_description', "My Blog is an opinionated blog platform with focus on speed and SEO.")
 
     <div class="relative bg-gray-50 px-4 pt-6 pb-12 sm:px-6 lg:px-8 lg:pt-12 lg:pb-12">
         <div class="absolute inset-0">
