@@ -3,12 +3,12 @@
 namespace App\Filament\Pages;
 
 use App\Settings\BlogSettings;
-use Filament\Pages\SettingsPage;
-use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\Fieldset;
-use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
+use Filament\Pages\SettingsPage;
 
 class Settings extends SettingsPage
 {
@@ -49,13 +49,13 @@ class Settings extends SettingsPage
                         ])->required(),
 
                     TextInput::make('square_image_size')
-                        ->helperText("Used by Grid layout"),
+                        ->helperText('Used by Grid layout'),
 
                     TextInput::make('rectangle_image_x_size')
-                        ->helperText("Used by Default layout"),
+                        ->helperText('Used by Default layout'),
 
                     TextInput::make('rectangle_image_y_size')
-                        ->helperText("Used by Default layout"),
+                        ->helperText('Used by Default layout'),
 
                     RichEditor::make('small_footer'),
 
@@ -71,9 +71,8 @@ class Settings extends SettingsPage
                     TextInput::make('google_analytics_tag'),
 
                     TextInput::make('twitter_username')
-                        ->helperText("e.g. @username"),
+                        ->helperText('e.g. @username'),
                 ]),
-
 
         ];
     }

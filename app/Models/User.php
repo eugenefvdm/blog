@@ -68,7 +68,6 @@ class User extends Authenticatable implements FilamentUser
     {
         return str_ends_with($this->email, env('ADMIN_PANEL_DOMAIN', '@example.com'))
             ||
-            $this->id === 1
-        ;
+            $this->id === 1;
     }
 }
