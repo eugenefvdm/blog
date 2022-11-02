@@ -31,7 +31,7 @@ class ImageService
         if (Settings::homePageLayout() == 'grid') {
             return self::square($model, 200);
         }
-        
+
         return self::crop($model, $xSize, $ySize);
     }
 
