@@ -5,18 +5,18 @@ return [
     /**
      * Dashboard Page
      */
-    'dedicated_dashboard' => true,
+    'dedicated_dashboard' => false,
     'dashboard_icon' => 'heroicon-o-chart-bar',
 
     /**
      * Widgets
      */
     'page_views' => [
-        'filament_dashboard' => false,
+        'filament_dashboard' => true,
         'global' => true,
     ],
     'visitors' => [
-        'filament_dashboard' => false,
+        'filament_dashboard' => true,
         'global' => true,
     ],
 
@@ -36,12 +36,12 @@ return [
     ],
 
     'active_users_twenty_eight_day' => [
-        'filament_dashboard' => false,
+        'filament_dashboard' => true,
         'global' => true,
     ],
 
     'sessions' => [
-        'filament_dashboard' => false,
+        'filament_dashboard' => true,
         'global' => true,
     ],
 
@@ -51,7 +51,7 @@ return [
     ],
 
     'sessions_by_country' => [
-        'filament_dashboard' => false,
+        'filament_dashboard' => true,
         'global' => true,
     ],
 
@@ -61,12 +61,12 @@ return [
     ],
 
     'most_visited_pages' => [
-        'filament_dashboard' => false,
+        'filament_dashboard' => true,
         'global' => true,
     ],
 
     'top_referrers_list' => [
-        'filament_dashboard' => false,
+        'filament_dashboard' => true,
         'global' => true,
     ],
 

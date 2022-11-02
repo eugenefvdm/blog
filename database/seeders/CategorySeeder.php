@@ -24,6 +24,12 @@ class CategorySeeder extends Seeder
         $title3 = $faker->word;
 
         Category::create([
+            'title' => "Uncategorized",
+            'slug' => "uncategorized",
+            'description' => "The default category for all posts which do not have an assigned category",
+        ]);
+
+        Category::create([
             'title' => $title1,
             'slug' => Str::slug($title1),
             'description' => $faker->paragraph,

@@ -14,7 +14,7 @@
                 </header>
                 <div>
                     <img class="float-right h-48 rounded" src="{{ $post->image }}">
-                    <p class="lead">{{ $post->description }}</p>
+                    <p class="lead">{!! $post->excerpt !!}</p>
                     <p>
                         {!! $post->body !!}
                     </p>

@@ -18,7 +18,7 @@
                         </a>
                     </p>
                     <div class="mt-2 block">
-                        <p class="truncate text-xl font-semibold text-gray-900">
+                        <p class="text-xl font-semibold text-gray-900">
                             <a href="{{ $post->url }}" class="hover:underline">
                                 {{ $post->title }}
                             </a>

@@ -13,7 +13,7 @@
                 <p class="mx-auto mt-3 max-w-2xl text-xl text-gray-500 sm:mt-4">{{ \App\Services\Blog::subtitle() }}</p>
             </div>
             
-            @include('articles')
+            @include('blog.articles')
 
         </div>
     </div>

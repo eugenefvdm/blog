@@ -34,6 +34,7 @@ class PostResource extends Resource
                     ->maxLength(255),
                 Forms\Components\Select::make('categoryId')
                     ->required()
+                    ->default(1)
                     ->relationship('category', 'title')
                     ->createOptionForm([
                         Forms\Components\TextInput::make('title')
@@ -61,8 +62,7 @@ class PostResource extends Resource
                 Forms\Components\FileUpload::make('featured_image')
                     ->storeFileNamesIn('attachment_file_names')
                     ->columnSpan('full')
-                    ->disk('blog'),
-                // ->directory('images'),
+                    ->disk('blog'),                
 
                 Forms\Components\Select::make('tagId')
                     ->multiple()

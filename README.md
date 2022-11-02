@@ -32,10 +32,11 @@ Please note when creating Blog posts, the excerpt field is required. This is to 
 
 ## Adding new settings
 
-- Look for App\Settings\BlogSettings::class and add the public variable.
-    - In above file, use `public ?string $google_analytics_tag;` if something is optional
-- Then look for App\Filament\Pages\Settings to add the form fields.
-- Then add a migration to \app\database\settings
+1. Look for App\Settings\BlogSettings::class and add the public variable.
+    Note: In above file, use `public ?string $google_analytics_tag;` if something is optional
+2. Then look for App\Filament\Pages\Settings to add the form fields.
+3. Then add a migration to \app\database\settings (create_blog_settings.php)
+4. For additional abstraction, add to \Services\Settings
 
 ## PHP Requirements
 

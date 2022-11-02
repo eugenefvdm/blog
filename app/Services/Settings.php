@@ -21,19 +21,24 @@ class Settings
         return app(BlogSettings::class)->subtitle;
     }
 
+    public static function enableBreadcrumbs()
+    {
+        return app(BlogSettings::class)->enable_breadcrumbs;
+    }
+
     public static function googleTag()
     {
         return app(BlogSettings::class)->google_analytics_tag;
     }
 
+    public static function homePageLayout()
+    {
+        return app(BlogSettings::class)->home_page_layout;
+    }
+
     public static function small_footer()
     {
         return app(BlogSettings::class)->small_footer;
-    }
-
-    public static function enableBreadcrumbs()
-    {
-        return app(BlogSettings::class)->enable_breadcrumbs;
     }
 
     public static function twitterUsername()

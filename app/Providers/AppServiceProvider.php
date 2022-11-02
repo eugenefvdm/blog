@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Reworck\FilamentSettings\FilamentSettings;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +24,18 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        // FilamentSettings::setFormFields([
+        //     \Filament\Forms\Components\TextInput::make('x'),
+        //     \Filament\Forms\Components\TextInput::make('y'),
+        //     \Filament\Forms\Components\Select::make('Blog Home Page Layout')
+        //         ->options([
+        //             'default',
+        //             'grid',
+        //         ]),
+        // ]);
+
+        
+
+        
     }
 }

@@ -16,9 +16,17 @@ class BlogSettings extends Settings
 
     public bool $enable_breadcrumbs;
 
-    public bool $enable_rss;
+    public bool $enable_rss; // TODO implement
 
     public string $small_footer;
+
+    public string $home_page_layout;
+
+    public string $rectangle_image_x_size;
+
+    public string $rectangle_image_y_size;
+
+    public string $square_image_size;
 
     public static function group(): string
     {
