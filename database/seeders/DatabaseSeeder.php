@@ -3,8 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use App\Models\Tag;
 use App\Models\Post;
+use App\Models\Tag;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
         Tag::factory()->count(3)->create();
 
         $dispatcher = Post::getEventDispatcher();
-        // Remove Dispatcher 
+        // Remove Dispatcher
         Post::unsetEventDispatcher();
 
         // Do stuff here that should be exempt from model observers
@@ -30,6 +30,5 @@ class DatabaseSeeder extends Seeder
 
         // Re-add Dispatcher
         Post::setEventDispatcher($dispatcher);
-        
     }
 }
