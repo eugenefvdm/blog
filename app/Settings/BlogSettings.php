@@ -18,7 +18,7 @@ class BlogSettings extends Settings
 
     public bool $enable_rss; // TODO implement
 
-    public string $small_footer;
+    public ?string $small_footer;
 
     public string $home_page_layout;
 
@@ -27,6 +27,12 @@ class BlogSettings extends Settings
     public string $rectangle_image_y_size;
 
     public string $square_image_size;
+
+    public ?string $contact_email;
+
+    public bool $show_contact_email;
+
+    public ?string $contact_number;
 
     public static function group(): string
     {

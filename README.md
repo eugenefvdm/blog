@@ -1,6 +1,6 @@
 ## Blog
 
-A blog platform based on Laravel and Filamentphp.
+A generic blog platform based on Laravel and Filamentphp.
 
 Demo:
 
@@ -8,15 +8,27 @@ https://eugene.fintechsystems.net
 
 ## Features
 
+- Beautiful and fast admin panel
 - SEO friendly
+-- Pages are highly optimized for speed and SEO integration
 - Sitemap
-- Easily activate Google Analytics and Google Search Console
-- Beautiful admin panel based on Filamentphp
 - RSS Feeds
+- Easily activate Google Analytics and Google Search Console
+- Choose between Default blog style and grid (Instagram style) layouts
 
 ## Google Analytics
 
-Create a Google Analytics UA property and then and then add the GA- setting in the admin panel. Once you have added the GA- code proceed to Google Search Console which will automatically detect ownership.
+### Activating Google Analytics
+
+Follow this guide to obtain analytics credentials:
+
+https://github.com/spatie/laravel-analytics#how-to-obtain-the-credentials-to-communicate-with-google-analytics
+
+Next, create a Google Analytics UA property and then and then add the GA- setting in the admin panel.
+
+### Activating Google Search Console
+
+Once you have added the GA- code proceed to Google Search Console which will automatically detect ownership.
 
 ## Sitemap
 
@@ -28,7 +40,9 @@ The feeds are available at /feed
 
 ## Blog Posts
 
-Please note when creating Blog posts, the excerpt field is required. This is to satisfy both design and feed requirements. 
+Please note when creating Blog posts, the `excerpt` field is required.
+
+This is to satisfy both design and feed requirements. 
 
 ## Adding new settings
 

@@ -20,7 +20,27 @@ class Settings
     {
         return app(BlogSettings::class)->subtitle;
     }
+    
+    public static function contactEmail()
+    {
+        return app(BlogSettings::class)->contact_email;
+    }
 
+    public static function contactEmailObfuscated()
+    {
+        return str_replace('@', ' (at) ', app(BlogSettings::class)->contact_email);        
+    }
+
+    public static function showContactEmail()
+    {
+        return app(BlogSettings::class)->show_contact_email;
+    }
+
+    public static function contactNumber()
+    {
+        return app(BlogSettings::class)->contact_number;
+    }
+    
     public static function enableBreadcrumbs()
     {
         return app(BlogSettings::class)->enable_breadcrumbs;

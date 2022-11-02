@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\TagController;
 use App\Mail\ContactForm;
+use App\Services\Settings;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
@@ -46,7 +47,7 @@ Route::get('/contact', function () {
 })->name('contact');
 
 Route::post('/contact/confirmation', function () {
-    Mail::to('eugene@fintechsystems.net')
+    Mail::to(Settings::contactEmail())
         ->send(new ContactForm(request()->all()));
 
     return view('contact-confirmation');

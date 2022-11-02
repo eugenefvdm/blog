@@ -21,9 +21,11 @@ class PostResource extends Resource
 {
     protected static ?string $model = Post::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationIcon = 'heroicon-o-document';
 
     protected static ?string $recordTitleAttribute = 'title';
+
+    protected static ?int $navigationSort = 2;
 
     public static function form(Form $form): Form
     {
@@ -55,13 +57,11 @@ class PostResource extends Resource
                     ->maxCharacters(160)
                     ->maxLength(255),
 
-                TiptapEditor::make('body')
-                    ->columnSpan('full')
+                TiptapEditor::make('body')                    
                     ->required(),
 
                 Forms\Components\FileUpload::make('featured_image')
-                    ->storeFileNamesIn('attachment_file_names')
-                    ->columnSpan('full')
+                    ->storeFileNamesIn('attachment_file_names')                    
                     ->disk('blog'),
 
                 Forms\Components\Select::make('tagId')

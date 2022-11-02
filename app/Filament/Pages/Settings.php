@@ -3,11 +3,12 @@
 namespace App\Filament\Pages;
 
 use App\Settings\BlogSettings;
-use Filament\Forms\Components\Checkbox;
-use Filament\Forms\Components\RichEditor;
-use Filament\Forms\Components\Select;
-use Filament\Forms\Components\TextInput;
 use Filament\Pages\SettingsPage;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Checkbox;
+use Filament\Forms\Components\Fieldset;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\RichEditor;
 
 class Settings extends SettingsPage
 {
@@ -30,29 +31,50 @@ class Settings extends SettingsPage
                 ->label('Blog subtitle')
                 ->required(),
 
-            TextInput::make('google_analytics_tag'),
+            Fieldset::make('Contact Page')
+                ->schema([
+                    TextInput::make('contact_email'),
 
-            TextInput::make('twitter_username'),
+                    Checkbox::make('show_contact_email'),
 
-            Checkbox::make('enable_breadcrumbs')
-            ->label('Enable Breadcrumbs'),
-
-            Checkbox::make('enable_rss')
-            ->label('Enable RSS'),
-
-            RichEditor::make('small_footer'),
-
-            Select::make('home_page_layout')
-                ->options([
-                    'default' => 'Default',
-                    'grid' => 'Grid',
+                    TextInput::make('contact_number'),
                 ]),
 
-            TextInput::make('rectangle_image_x_size'),
+            Fieldset::make('Layouts, image uploading, footer, RSS')
+                ->schema([
+                    Select::make('home_page_layout')
+                        ->options([
+                            'default' => 'Default',
+                            'grid' => 'Grid',
+                        ])->required(),
 
-            TextInput::make('rectangle_image_y_size'),
+                    TextInput::make('square_image_size')
+                        ->helperText("Used by Grid layout"),
 
-            TextInput::make('square_image_size'),
+                    TextInput::make('rectangle_image_x_size')
+                        ->helperText("Used by Default layout"),
+
+                    TextInput::make('rectangle_image_y_size')
+                        ->helperText("Used by Default layout"),
+
+                    RichEditor::make('small_footer'),
+
+                    Checkbox::make('enable_breadcrumbs')
+                        ->label('Enable Breadcrumbs'),
+
+                    Checkbox::make('enable_rss')
+                        ->label('Enable RSS'),
+                ]),
+
+            Fieldset::make('Analytics & Social Settings')
+                ->schema([
+                    TextInput::make('google_analytics_tag'),
+
+                    TextInput::make('twitter_username')
+                        ->helperText("e.g. @username"),
+                ]),
+
+
         ];
     }
 }

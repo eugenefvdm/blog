@@ -18,19 +18,28 @@
                                 </div>
                             </div>
                         </div>
-                        <div>
-                            <div class="p-0">
-                                <div class="flex items-center">
-                                    <div class="text-xl pb-6 font-bold">Get in touch</div>
-                                </div>
-                                <div class="ml-0">
-                                    <ul class="pt-4">
-                                        <li class="pb-4"><a href="tel:+27823096710">+27 82 309-6710</a></li>
-                                        <li class="pb-4">eugene (at) fintechsystems.net</li>
-                                    </ul>
+                        @if (App\Services\Settings::contactNumber() or App\Services\Settings::showContactEmail())
+                            <div>
+                                <div class="p-0">
+                                    <div class="flex items-center">
+                                        <div class="text-xl pb-6 font-bold">Get in touch</div>
+                                    </div>
+                                    <div class="ml-0">
+                                        <ul class="pt-4">
+                                            @if (App\Services\Settings::contactNumber())
+                                                <li class="pb-4"><a
+                                                        href="tel:{{ App\Services\Settings::contactNumber() }}">{{ App\Services\Settings::contactNumber() }}</a>
+                                                </li>
+                                            @endif
+                                            @if (App\Services\Settings::showContactEmail())
+                                                <li class="pb-4">{{ App\Services\Settings::contactEmailObfuscated() }}
+                                                </li>
+                                            @endif
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        @endif
                     </div>
                 </div>
             </div>
