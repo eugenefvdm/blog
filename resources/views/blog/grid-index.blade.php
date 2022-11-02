@@ -1,4 +1,4 @@
-<x-guest-layout>
+<x-app-layout>
 
     @section('meta_description', 'My Blog is an opinionated blog platform with focus on speed, ease of use, and SEO.')
 
@@ -9,4 +9,4 @@
     </div>
 
     @include('layouts.seo')
-</x-guest-layout>
+</x-app-layout>
