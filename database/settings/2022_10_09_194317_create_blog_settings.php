@@ -12,10 +12,10 @@ class CreateBlogSettings extends SettingsMigration
         $this->migrator->add('blog.small_footer', date('Y').' '.config('app.name'));
         $this->migrator->add('blog.enable_breadcrumbs', true);
         $this->migrator->add('blog.enable_rss', true);
-        $this->migrator->add('blog.twitter_username', null);                
-        $this->migrator->add('blog.google_analytics_tag', null);        
+        $this->migrator->add('blog.twitter_username', null);
+        $this->migrator->add('blog.google_analytics_tag', null);
         $this->migrator->add('blog.rectangle_image_x_size', 640);
-        $this->migrator->add('blog.rectangle_image_y_size', 480);        
+        $this->migrator->add('blog.rectangle_image_y_size', 480);
         $this->migrator->add('blog.square_image_size', 200);
     }
 }

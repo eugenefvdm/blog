@@ -2,13 +2,13 @@
 
 namespace App\Services;
 
-use Spatie\Valuestore\Valuestore;
-use Intervention\Image\Facades\Image;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
+use Spatie\Valuestore\Valuestore;
 
 class ImageService
-{    
+{
     /**
      * Generic routine to compress images on creating and updating. It uses
      * Intervention library will be called to resize and upsize to a
@@ -19,7 +19,7 @@ class ImageService
     public static function compress(Model $model, $xSize = 640, $ySize = 480)
     {
         // Sometimes you end up here without an image and then you should return
-        if (!$model->featured_image) {
+        if (! $model->featured_image) {
             return;
         }
 
@@ -30,26 +30,28 @@ class ImageService
 
         return self::square($model, 200);
 
-        // return $this->crop($model, $xSize, $ySize);        
+        // return $this->crop($model, $xSize, $ySize);
     }
 
-    private static function square($model, $size) {
+    private static function square($model, $size)
+    {
         $retrievedImage = Storage::disk('blog')->get($model->featured_image);
-        
+
         $img = Image::make($retrievedImage);
-        
+
         $img->fit($size);
-        
+
         ray(self::filepath($model));
-                
+
         $img->save(self::filepath($model)[1]);
 
         return self::filepath($model)[0];
     }
 
-    private static function crop($model, $xSize, $ySize) {
+    private static function crop($model, $xSize, $ySize)
+    {
         $retrievedImage = Storage::disk('blog')->get($model->featured_image);
-     
+
         $img = Image::make($retrievedImage);
 
         $img->resize($xSize, $ySize, function ($constraint) {
@@ -61,37 +63,40 @@ class ImageService
         // Center on a canvas
         $canvas = Image::canvas($xSize, $ySize);
         $canvas->insert($img, 'center');
-                
+
         $img->save(self::filepath($model)[1]);
 
         return self::filepath($model)[0];
     }
 
-    private static function checkSettings($x, $y) {
-        $pathToFile = storage_path() . '/app/settings.json';
-        
+    private static function checkSettings($x, $y)
+    {
+        $pathToFile = storage_path().'/app/settings.json';
+
         $valuestore = Valuestore::make($pathToFile, ['test' => '123']);
 
         $valuestore = Valuestore::make($pathToFile);
-        
-        if ($valuestore->get("x")) {
-            $x = $valuestore->get("x");
+
+        if ($valuestore->get('x')) {
+            $x = $valuestore->get('x');
         }
 
-        if ($valuestore->get("y")) {
-            $y = $valuestore->get("y");
+        if ($valuestore->get('y')) {
+            $y = $valuestore->get('y');
         }
 
         return [$x, $y];
     }
+
     /**
      * Return the filename without extension and configured path.
-     */    
-    private static function filepath($model) {    
+     */
+    private static function filepath($model)
+    {
         $filename = pathinfo($model->attachment_file_names, PATHINFO_FILENAME).'-'.time().'.webp';
 
         $path = config('filesystems.disks.blog.root').'/';
 
-        return [$filename, $path . $filename];
+        return [$filename, $path.$filename];
     }
 }

@@ -62,7 +62,7 @@ class PostResource extends Resource
                 Forms\Components\FileUpload::make('featured_image')
                     ->storeFileNamesIn('attachment_file_names')
                     ->columnSpan('full')
-                    ->disk('blog'),                
+                    ->disk('blog'),
 
                 Forms\Components\Select::make('tagId')
                     ->multiple()

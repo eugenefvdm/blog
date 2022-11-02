@@ -33,9 +33,5 @@ class AppServiceProvider extends ServiceProvider
         //             'grid',
         //         ]),
         // ]);
-
-        
-
-        
     }
 }
