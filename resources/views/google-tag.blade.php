@@ -14,5 +14,9 @@
             gtag('config', '{{ \App\Services\Settings::googleTag() }}');
         </script>
         @endif
+    @else
+        <!-- Not in guest mode -->
     @endguest
+@else
+    <!-- Not in production -->
 @endproduction
