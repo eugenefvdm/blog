@@ -28,9 +28,11 @@ class ImageService
         //     [$xSize, $ySize] = self::checkSettings($xSize, $ySize);
         // }
 
-        return self::square($model, 200);
-
-        // return $this->crop($model, $xSize, $ySize);        
+        if (Settings::homePageLayout() == 'grid') {
+            return self::square($model, 200);
+        }
+        
+        return self::crop($model, $xSize, $ySize);
     }
 
     private static function square($model, $size) {
