@@ -20,7 +20,7 @@ class Settings
     {
         return app(BlogSettings::class)->subtitle;
     }
-    
+
     public static function contactEmail()
     {
         return app(BlogSettings::class)->contact_email;
@@ -28,7 +28,7 @@ class Settings
 
     public static function contactEmailObfuscated()
     {
-        return str_replace('@', ' (at) ', app(BlogSettings::class)->contact_email);        
+        return str_replace('@', ' (at) ', app(BlogSettings::class)->contact_email);
     }
 
     public static function showContactEmail()
@@ -40,7 +40,7 @@ class Settings
     {
         return app(BlogSettings::class)->contact_number;
     }
-    
+
     public static function enableBreadcrumbs()
     {
         return app(BlogSettings::class)->enable_breadcrumbs;

@@ -57,11 +57,11 @@ class PostResource extends Resource
                     ->maxCharacters(160)
                     ->maxLength(255),
 
-                TiptapEditor::make('body')                    
+                TiptapEditor::make('body')
                     ->required(),
 
                 Forms\Components\FileUpload::make('featured_image')
-                    ->storeFileNamesIn('attachment_file_names')                    
+                    ->storeFileNamesIn('attachment_file_names')
                     ->disk('blog'),
 
                 Forms\Components\Select::make('tagId')
