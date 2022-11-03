@@ -46,7 +46,7 @@ class ImageService
         $img = Image::make($retrievedImage); // You can probably make->fit->save
 
         $img->fit($size);
-        
+
         $img->save(self::filepath($model)[1]);
 
         return self::filepath($model)[0];
