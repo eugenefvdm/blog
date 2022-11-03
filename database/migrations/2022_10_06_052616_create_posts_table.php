@@ -28,7 +28,7 @@ class CreatePostsTable extends Migration
             // $table->string('attachment_file_names')->nullable();
             $table->string('original_image')->nullable();
             $table->string('status')->nullable();
-            // $table->integer('sort')->nullable();
+            // $table->integer('order_column')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

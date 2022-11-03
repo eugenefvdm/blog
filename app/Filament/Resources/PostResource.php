@@ -94,15 +94,11 @@ class PostResource extends Resource
                     ->sortable(),
                 Tables\Columns\TextColumn::make('status')
                     ->searchable()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('order_column')
-                    ->searchable()
-                    ->sortable(),
+                    ->sortable(),                
                 Tables\Columns\TextColumn::make('updated_at')
                     ->sortable()
                     ->dateTime(),
-            ])
-            // ->defaultSort('updated_at', 'desc')
+            ])            
             ->defaultSort('order_column')
             ->reorderable('order_column')
             

@@ -132,7 +132,7 @@ class Post extends Model implements Sortable, Sitemapable, Feedable
 
     public function scopePublished($query)
     {
-        $query->whereStatus(Status::PUBLISHED)->latest();
+        $query->whereStatus(Status::PUBLISHED)->ordered()->get();
     }
 
     // Relationships
