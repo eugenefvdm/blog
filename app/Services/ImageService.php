@@ -39,12 +39,14 @@ class ImageService
     {
         $retrievedImage = Storage::disk('blog')->get($model->featured_image);
 
-        $img = Image::make($retrievedImage);
+        if (! $retrievedImage) {
+            return;
+        }
+
+        $img = Image::make($retrievedImage); // You can probably make->fit->save
 
         $img->fit($size);
-
-        ray(self::filepath($model));
-
+        
         $img->save(self::filepath($model)[1]);
 
         return self::filepath($model)[0];
@@ -53,6 +55,10 @@ class ImageService
     private static function crop($model, $xSize, $ySize)
     {
         $retrievedImage = Storage::disk('blog')->get($model->featured_image);
+
+        if (! $retrievedImage) {
+            return;
+        }
 
         $img = Image::make($retrievedImage);
 

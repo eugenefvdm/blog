@@ -38,6 +38,12 @@ class Post extends Model implements Sortable, Sitemapable, Feedable
         'featured_image',
         'attachment_file_names',
         'status',
+        'order_column',
+    ];
+
+    public $sortable = [
+        'order_column_name' => 'order_column',
+        'sort_when_creating' => true,
     ];
 
     protected static function boot()
