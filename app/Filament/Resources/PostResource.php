@@ -101,7 +101,7 @@ class PostResource extends Resource
             ])            
             ->defaultSort('order_column')
             ->reorderable('order_column')
-            
+
             ->filters([
                 Tables\Filters\TrashedFilter::make(),
             ])
