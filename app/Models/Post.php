@@ -3,19 +3,19 @@
 namespace App\Models;
 
 use App\Enums\Status;
+use App\Services\Settings;
+use App\Traits\ImageCompression;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\EloquentSortable\Sortable;
+use Spatie\EloquentSortable\SortableTrait;
 use Spatie\Feed\Feedable;
 use Spatie\Feed\FeedItem;
-use App\Services\Settings;
+use Spatie\Sitemap\Contracts\Sitemapable;
 use Spatie\Sitemap\Tags\Url;
 use Spatie\Sluggable\HasSlug;
-use App\Traits\ImageCompression;
 use Spatie\Sluggable\SlugOptions;
-use Spatie\EloquentSortable\Sortable;
-use Illuminate\Database\Eloquent\Model;
-use Spatie\Sitemap\Contracts\Sitemapable;
-use Spatie\EloquentSortable\SortableTrait;
-use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Post extends Model implements Sortable, Sitemapable, Feedable
 {
@@ -137,7 +137,7 @@ class Post extends Model implements Sortable, Sitemapable, Feedable
             $query->whereStatus(Status::PUBLISHED)->ordered()->get();
         } else {
             $query->whereStatus(Status::PUBLISHED)->latest()->get();
-        }    
+        }
     }
 
     // Relationships
