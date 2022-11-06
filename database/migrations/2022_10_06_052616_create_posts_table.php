@@ -19,10 +19,10 @@ class CreatePostsTable extends Migration
             $table->unsignedBigInteger('category_id')->nullable();
             $table->string('title');
             $table->string('slug');
-            $table->text('body');
-            $table->string('excerpt');
-            $table->json('tags')->nullable();
+            $table->text('excerpt');
+            $table->text('body');            
             $table->string('description')->nullable();
+            $table->json('tags')->nullable();            
             $table->string('featured_image')->nullable();
             $table->string('featured_image_alt_tag')->nullable();
             // $table->string('attachment_file_names')->nullable();
