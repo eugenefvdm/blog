@@ -58,6 +58,7 @@ class PostResource extends Resource
                     ->maxLength(255),
 
                 TiptapEditor::make('body')
+                    ->extraInputAttributes(['style' => 'min-height: 12rem;'])
                     ->required(),
 
                 Forms\Components\FileUpload::make('featured_image')
