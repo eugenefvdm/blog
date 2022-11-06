@@ -44,7 +44,7 @@ class PostResource extends Resource
                         Forms\Components\TextInput::make('description'),
                     ]),
                 Forms\Components\RichEditor::make('excerpt')
-                    ->hint('Displayed on summaries and feeds')                    
+                    ->hint('Displayed on summaries and feeds')
                     ->required(),
                 CharcountedTextarea::make('description')
                     ->label('Description')
