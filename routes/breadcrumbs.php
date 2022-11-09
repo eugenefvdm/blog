@@ -14,7 +14,7 @@ Breadcrumbs::for('home', function (BreadcrumbTrail $trail) {
 
 Breadcrumbs::for('blog.category', function (BreadcrumbTrail $trail, Category $category) {
     $trail->parent('home');
-
+    
     $trail->push($category->title, route('blog.category', $category));
 });
 
