@@ -1,7 +1,7 @@
 @if(isset($seo))
     @push('seo')
 <!-- Per page SEO -->
-        <!-- SEO title & description -->
+        <!-- SEO title/description/canonical -->
         {!! SEOMeta::generate() !!}
 
         <!-- SEO OpenGraph -->

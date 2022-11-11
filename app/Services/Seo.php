@@ -26,6 +26,9 @@ class Seo
         $SeoToolPageTitle = $page->title.' - '.config('app.name');
         SEOMeta::setTitle($SeoToolPageTitle);
         SEOMeta::setDescription($page->description);
+        if ($page->url) {
+            SEOMeta::setCanonical(config('app.url') . $page->url);
+        }
 
         OpenGraph::setDescription(strip_tags($page->excerpt));
         OpenGraph::setTitle($page->title);
