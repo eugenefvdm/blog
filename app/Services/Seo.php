@@ -27,7 +27,7 @@ class Seo
         SEOMeta::setTitle($SeoToolPageTitle);
         SEOMeta::setDescription($page->description);
         if ($page->url) {
-            SEOMeta::setCanonical(config('app.url') . $page->url);
+            SEOMeta::setCanonical(config('app.url').$page->url);
         }
 
         OpenGraph::setDescription(strip_tags($page->excerpt));
