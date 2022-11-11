@@ -2,20 +2,21 @@
 
 namespace App\Filament\Resources;
 
-use App\Enums\Status;
-use App\Filament\Resources\PostResource\Pages;
-use App\Models\Post;
 use Filament\Forms;
-use Filament\Resources\Form;
-use Filament\Resources\Resource;
-use Filament\Resources\Table;
+use App\Models\Post;
 use Filament\Tables;
+use App\Enums\Status;
+use Filament\Resources\Form;
+use Filament\Resources\Table;
+use Filament\Resources\Resource;
 use FilamentTiptapEditor\TiptapEditor;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
+use App\Filament\Resources\PostResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use MartinRo\FilamentCharcountField\Components\CharcountedTextarea;
 use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction;
+use Tapp\FilamentAuditing\RelationManagers\AuditsRelationManager;
+use MartinRo\FilamentCharcountField\Components\CharcountedTextarea;
 
 class PostResource extends Resource
 {
@@ -146,5 +147,12 @@ class PostResource extends Resource
             ->withoutGlobalScopes([
                 SoftDeletingScope::class,
             ]);
+    }
+
+    public static function getRelations(): array
+    {
+        return [
+            AuditsRelationManager::class,
+        ];
     }
 }
