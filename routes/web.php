@@ -45,6 +45,9 @@ Route::get('/tag/{tag}', [TagController::class, 'show'])
 Route::get('/tags', [TagController::class, 'index'])
     ->name('blog.tags');
 
+Route::get('/tag-cloud', [TagController::class, 'cloud'])
+    ->name('blog.tag-cloud');
+
 Route::get('/{category}/{post}', [PostController::class, 'show'])
     ->name('blog.post.show');
 
