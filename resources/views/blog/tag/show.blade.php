@@ -19,7 +19,7 @@
                 </p>
             </div>
 
-            @include('articles')
+            @include('blog.articles')
 
         </div>
     </div>

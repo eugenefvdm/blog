@@ -15,13 +15,29 @@ Breadcrumbs::for('home', function (BreadcrumbTrail $trail) {
 Breadcrumbs::for('blog.category', function (BreadcrumbTrail $trail, Category $category) {
     $trail->parent('home');
 
+    $trail->push('Category', route('blog.categories'));
+
     $trail->push($category->title, route('blog.category', $category));
+});
+
+Breadcrumbs::for('blog.categories', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    
+    $trail->push('Categories');
 });
 
 Breadcrumbs::for('blog.tag', function (BreadcrumbTrail $trail, Tag $tag) {
     $trail->parent('home');
 
+    $trail->push('Tag', route('blog.tags'));
+
     $trail->push($tag->title, route('blog.tag', $tag));
+});
+
+Breadcrumbs::for('blog.tags', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    
+    $trail->push('Tags');
 });
 
 Breadcrumbs::for('blog.post.show', function (BreadcrumbTrail $trail, Category $category, Post $post) {

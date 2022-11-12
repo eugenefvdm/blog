@@ -29,6 +29,13 @@ class Tag extends Model
             ->saveSlugsTo('slug');
     }
 
+    // Getters
+
+    public function getAdminUrlAttribute()
+    {
+        return "/admin/tags/{$this->slug}/edit";
+    }
+
     public function posts()
     {
         return $this->belongsToMany(Post::class);

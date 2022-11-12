@@ -12,14 +12,13 @@ class TagController extends Controller
     {
         $tags = Tag::all();
 
-        return view('blog.tags', compact('tags'));
+        return view('blog.tag.index', compact('tags'));
     }
 
     public function show(Tag $tag)
     {
-        $posts = Post::published()
-            ->whereJsonContains('tags', $tag->title)->get();
-
+        $posts = $tag->posts;
+      
         $seo = Seo::page($tag);
 
         return view('blog.tag.show', compact('tag', 'posts', 'seo'));

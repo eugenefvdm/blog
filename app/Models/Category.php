@@ -29,6 +29,13 @@ class Category extends Model
             ->saveSlugsTo('slug');
     }
 
+    // Getters
+
+    public function getAdminUrlAttribute()
+    {
+        return "/admin/categories/{$this->slug}/edit";
+    }
+
     public function posts()
     {
         return $this->hasMany(Post::class);

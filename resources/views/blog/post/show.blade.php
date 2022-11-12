@@ -20,7 +20,7 @@
                     </p>
                 </div>
                 <div class="text-sm">
-                    @if ($post->tags())
+                    @if ($post->tags()->count() > 0)
                         <div>
                             Tagged: {!! $post->formattedTags !!}
                         </div>

@@ -36,8 +36,14 @@ Route::get('/', [PostController::class, 'index'])
 Route::get('/category/{category}', [CategoryController::class, 'show'])
     ->name('blog.category');
 
+Route::get('/categories', [CategoryController::class, 'index'])
+    ->name('blog.categories');
+
 Route::get('/tag/{tag}', [TagController::class, 'show'])
     ->name('blog.tag');
+
+Route::get('/tags', [TagController::class, 'index'])
+    ->name('blog.tags');
 
 Route::get('/{category}/{post}', [PostController::class, 'show'])
     ->name('blog.post.show');

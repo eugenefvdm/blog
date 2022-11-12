@@ -115,7 +115,7 @@ class Post extends Model implements Sortable, Sitemapable, Feedable, Auditable
         $html = '';
 
         foreach ($this->tags()->get() as $tag) {
-            $html .= "<a href='/tag/$tag->title'>$tag->title</a>, ";
+            $html .= "<a href='/tag/$tag->slug'>$tag->title</a>, ";
         }
 
         return substr($html, 0, -2);
