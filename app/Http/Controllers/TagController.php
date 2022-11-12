@@ -24,12 +24,13 @@ class TagController extends Controller
         return view('blog.tag.show', compact('tag', 'posts', 'seo'));
     }
 
-    public function cloud() {
+    public function cloud()
+    {
         $tags = Tag::join('post_tag as pt', 'pt.tag_id', '=', 'id')
         ->selectRaw('title, slug, count(title) as count')
-        ->groupBy('title', 'slug')        
+        ->groupBy('title', 'slug')
         ->get();
-        
+
         $htmlTags = new TagCloud();
         
         // Build the tag cloud based on title, slug, and count
@@ -37,6 +38,6 @@ class TagController extends Controller
             $htmlTags->addElement($tag->title, config('app.url') . '/tag/' . $tag->slug, $tag->count);
         }
 
-        echo $htmlTags->buildALL();        
+        echo $htmlTags->buildALL();
     }
 }
