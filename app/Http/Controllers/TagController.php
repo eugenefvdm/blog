@@ -18,7 +18,7 @@ class TagController extends Controller
     public function show(Tag $tag)
     {
         $posts = $tag->posts;
-      
+
         $seo = Seo::page($tag);
 
         return view('blog.tag.show', compact('tag', 'posts', 'seo'));

@@ -22,7 +22,7 @@ Breadcrumbs::for('blog.category', function (BreadcrumbTrail $trail, Category $ca
 
 Breadcrumbs::for('blog.categories', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
-    
+
     $trail->push('Categories');
 });
 
@@ -36,7 +36,7 @@ Breadcrumbs::for('blog.tag', function (BreadcrumbTrail $trail, Tag $tag) {
 
 Breadcrumbs::for('blog.tags', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
-    
+
     $trail->push('Tags');
 });
 
