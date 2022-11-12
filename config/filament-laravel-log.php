@@ -24,7 +24,7 @@ return [
     /**
      * Navigation group.
      */
-    'navigationGroup' => 'Settings',
+    'navigationGroup' => 'System',
 
     /**
      * Navigation sort.

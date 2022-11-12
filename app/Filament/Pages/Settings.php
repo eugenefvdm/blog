@@ -18,7 +18,7 @@ class Settings extends SettingsPage
 
     protected static ?int $navigationSort = 20;
 
-    protected static ?string $navigationGroup = 'Settings';
+    protected static ?string $navigationGroup = 'System';
 
     protected function getFormSchema(): array
     {
