@@ -24,19 +24,20 @@ class TagController extends Controller
         return view('blog.tag.show', compact('tag', 'posts', 'seo'));
     }
 
-    public function cloud() {
+    public function cloud()
+    {
         $tags = Tag::join('post_tag as pt', 'pt.tag_id', '=', 'id')
         ->selectRaw('title, slug, count(title) as count')
-        ->groupBy('title', 'slug')        
+        ->groupBy('title', 'slug')
         ->get();
-        
+
         $htmlTags = new TagCloud();
-        
+
         // Now get the newest article
-        foreach($tags as $tag) {
-            $htmlTags->addElement($tag->title,$tag->slug, $tag->count);
+        foreach ($tags as $tag) {
+            $htmlTags->addElement($tag->title, $tag->slug, $tag->count);
         }
 
-        echo $htmlTags->buildALL();        
+        echo $htmlTags->buildALL();
     }
 }
