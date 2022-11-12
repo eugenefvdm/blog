@@ -32,10 +32,10 @@ class TagController extends Controller
         ->get();
 
         $htmlTags = new TagCloud();
-        
+
         // Build the tag cloud based on title, slug, and count
-        foreach($tags as $tag) {
-            $htmlTags->addElement($tag->title, config('app.url') . '/tag/' . $tag->slug, $tag->count);
+        foreach ($tags as $tag) {
+            $htmlTags->addElement($tag->title, config('app.url').'/tag/'.$tag->slug, $tag->count);
         }
 
         echo $htmlTags->buildALL();
