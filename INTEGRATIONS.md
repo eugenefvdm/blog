@@ -63,6 +63,10 @@ expose share --subdomain=payfast --server=eu-1 https://blog.test
 
 ### Local gateway development
 
+If you're hooking up the PayFast gateway's source code to your project, use the sequence below:
+
+In `composer.json`:
+
 ```
 "repositories": [      
         {
@@ -71,3 +75,6 @@ expose share --subdomain=payfast --server=eu-1 https://blog.test
         }
     ],
 ```
+
+`composer require fintechsystems/payfast-onsite-subscriptions`
+
