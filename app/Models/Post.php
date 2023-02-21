@@ -72,7 +72,7 @@ class Post extends Model implements Sortable, Sitemapable, Feedable, Auditable
             ->saveSlugsTo('slug');
     }
 
-    public function toSitemapTag(): Url | string | array
+    public function toSitemapTag(): Url|string|array
     {
         return route('blog.post.show', [$this->category, $this]);
     }
