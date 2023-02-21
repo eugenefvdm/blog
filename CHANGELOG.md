@@ -2,6 +2,10 @@
 
 All notable changes to `blog` will be documented in this file.
 
+## v0.0.4 - 21-02-2023
+
+- Added an `api/articles` API route and activated Jetstream API tokens. You can now generate an API token and call the articles Sanctum route and get a list of articles.
+
 ## v0.0.3 - 10-11-2022
 
 - First beta release
