@@ -24,9 +24,9 @@ class CreatePostsTable extends Migration
             $table->string('description')->nullable();
             $table->json('tags')->nullable();
             $table->string('featured_image')->nullable();
-            $table->string('featured_image_alt_tag')->nullable();            
+            $table->string('featured_image_alt_tag')->nullable();
             $table->string('original_image')->nullable();
-            $table->string('status')->nullable();            
+            $table->string('status')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
