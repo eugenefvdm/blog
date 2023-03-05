@@ -39,6 +39,7 @@ class Post extends Model implements Sortable, Sitemapable, Feedable, Auditable
         'category_id',
         'tags',
         'featured_image',
+        'featured_image_alt_tag',
         'attachment_file_names',
         'status',
         'order_column',
