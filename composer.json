@@ -13,7 +13,7 @@
         "doctrine/dbal": "^3.4",
         "filament/filament": "^2.0",
         "filament/spatie-laravel-settings-plugin": "^2.0",
-        "fintechsystems/payfast-onsite-subscriptions": "dev-main",
+        "fintechsystems/payfast-onsite-subscriptions": "^1.6",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^9.19",
         "laravel/jetstream": "^2.12",
@@ -32,19 +32,13 @@
         "spatie/laravel-sitemap": "^6.2",
         "spatie/laravel-sluggable": "^3.4",
         "tapp/filament-auditing": "^1.4"
-    },
-    "repositories": [      
-        {
-            "type": "path",
-            "url": "../payfast-onsite-subscriptions"
-        }
-    ],
+    },    
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
         "laravel/pint": "^1.0",
         "laravel/sail": "^1.0.1",
         "mockery/mockery": "^1.4.4",
-        "nunomaduro/collision": "^6.1",
+        "nunomaduro/collision": "^7.0",
         "phpunit/phpunit": "^9.5.10",
         "spatie/laravel-ignition": "^1.0"
     },

@@ -2,6 +2,11 @@
 
 All notable changes to `blog` will be documented in this file.
 
+## v0.0.5 - 05-03-2023
+
+- Had an issue that the development version of the ecommerce gateway was referred to in Composer
+- Updated composer, and to get the ecommerce library to update I had to update collission to version ^7.0 from ^6.3
+
 ## v0.0.4 - 21-02-2023
 
 - Added an `api/articles` API route and activated Jetstream API tokens. You can now generate an API token and call the articles Sanctum route and get a list of articles.
