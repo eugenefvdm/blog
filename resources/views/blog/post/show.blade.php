@@ -13,7 +13,7 @@
                     </h1>
                 </header>
                 <div>
-                    <img class="float-right h-48 rounded" src="{{ $post->image }}">
+                    <img class="float-right h-48 rounded" src="{{ $post->image }}" alt="{{ $post->featured_image_alt_tag }}">
                     <p class="lead">{!! $post->excerpt !!}</p>
                     <p>
                         {!! $post->body !!}

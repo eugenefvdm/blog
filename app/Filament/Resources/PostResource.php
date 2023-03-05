@@ -65,6 +65,10 @@ class PostResource extends Resource
                     ->storeFileNamesIn('attachment_file_names')
                     ->disk('blog'),
 
+                Forms\Components\TextInput::make('featured_image_alt_tag')
+                    ->required()
+                    ->maxLength(255),
+
                 Forms\Components\Select::make('tagId')
                     ->multiple()
                     ->relationship('tags', 'title')

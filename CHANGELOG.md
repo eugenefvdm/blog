@@ -6,6 +6,8 @@ All notable changes to `blog` will be documented in this file.
 
 - Had an issue that the development version of the ecommerce gateway was referred to in Composer
 - Updated composer, and to get the ecommerce library working update collission to version ^7.0 from ^6.3
+- Add shopping cart style favicons
+- Add missing Filament editing code for featured image alt tag and wire to front-end
 
 ## v0.0.4 - 21-02-2023
 
