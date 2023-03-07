@@ -60,14 +60,10 @@ return [
         'global' => true,
     ],
 
-
-
     'sessions_by_device' => [
         'filament_dashboard' => false,
         'global' => true,
     ],
-
-
 
     'top_referrers_list' => [
         'filament_dashboard' => true,
