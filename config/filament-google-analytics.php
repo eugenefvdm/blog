@@ -11,6 +11,21 @@ return [
     /**
      * Widgets
      */
+    'most_visited_pages' => [
+        'filament_dashboard' => true,
+        'global' => true,
+    ],
+
+    'sessions_by_country' => [
+        'filament_dashboard' => true,
+        'global' => true,
+    ],
+
+    'active_users_twenty_eight_day' => [
+        'filament_dashboard' => true,
+        'global' => true,
+    ],
+
     'page_views' => [
         'filament_dashboard' => true,
         'global' => true,
@@ -35,11 +50,6 @@ return [
         'global' => true,
     ],
 
-    'active_users_twenty_eight_day' => [
-        'filament_dashboard' => true,
-        'global' => true,
-    ],
-
     'sessions' => [
         'filament_dashboard' => true,
         'global' => true,
@@ -50,20 +60,14 @@ return [
         'global' => true,
     ],
 
-    'sessions_by_country' => [
-        'filament_dashboard' => true,
-        'global' => true,
-    ],
+
 
     'sessions_by_device' => [
         'filament_dashboard' => false,
         'global' => true,
     ],
 
-    'most_visited_pages' => [
-        'filament_dashboard' => true,
-        'global' => true,
-    ],
+
 
     'top_referrers_list' => [
         'filament_dashboard' => true,

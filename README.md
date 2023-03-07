@@ -26,6 +26,11 @@ https://github.com/spatie/laravel-analytics#how-to-obtain-the-credentials-to-com
 
 Next, create a Google Analytics UA property and then and then add the GA- setting in the admin panel.
 
+### Rearranging the Google Analytics Panel
+
+The Google Analytics statistics are prominently displayed on the landing page dashboard. To re-arrange or disable panels, find this file:
+`config/filament-google-analytics.php`
+
 ### Activating Google Search Console
 
 Once you have added the GA- code proceed to Google Search Console which will automatically detect ownership.
