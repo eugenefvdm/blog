@@ -9,6 +9,7 @@ All notable changes to `blog` will be documented in this file.
 - Add shopping cart style favicons
 - Add missing Filament editing code for featured image alt tag and wire to front-end
 - Add dashboard re-arrange and disable text in readme
+- Some improvements in accessibility as gauged from PageSpeed Insights. Button `aria-label` and a href link text using `title`
 
 ## v0.0.4 - 21-02-2023
 
