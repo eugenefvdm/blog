@@ -3,30 +3,31 @@
 namespace App\Models;
 
 use App\Enums\Status;
+use App\Services\Settings;
+use App\Traits\ImageCompression;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use OwenIt\Auditing\Contracts\Auditable;
+use Spatie\EloquentSortable\Sortable;
+use Spatie\EloquentSortable\SortableTrait;
 use Spatie\Feed\Feedable;
 use Spatie\Feed\FeedItem;
-use App\Services\Settings;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\Sitemap\Contracts\Sitemapable;
 use Spatie\Sitemap\Tags\Url;
 use Spatie\Sluggable\HasSlug;
-use App\Traits\ImageCompression;
-use Spatie\MediaLibrary\HasMedia;
 use Spatie\Sluggable\SlugOptions;
-use Spatie\EloquentSortable\Sortable;
-use Illuminate\Database\Eloquent\Model;
-use OwenIt\Auditing\Contracts\Auditable;
-use Spatie\Sitemap\Contracts\Sitemapable;
-use Spatie\EloquentSortable\SortableTrait;
-use Spatie\MediaLibrary\InteractsWithMedia;
-use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Post extends Model implements Sortable, Sitemapable, Feedable, Auditable, HasMedia
 {
     use HasFactory;
     use SoftDeletes;
     use HasSlug;
-    use SortableTrait;    
+    use SortableTrait;
     use \OwenIt\Auditing\Auditable;
+
     // use ImageCompression;
     use InteractsWithMedia;
 

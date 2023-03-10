@@ -2,22 +2,22 @@
 
 namespace App\Filament\Resources;
 
-use Filament\Forms;
-use App\Models\Post;
-use Filament\Tables;
 use App\Enums\Status;
+use App\Filament\Resources\PostResource\Pages;
+use App\Models\Post;
+use Filament\Forms;
+use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Resources\Form;
-use Filament\Resources\Table;
 use Filament\Resources\Resource;
+use Filament\Resources\Table;
+use Filament\Tables;
 use FilamentTiptapEditor\TiptapEditor;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
-use App\Filament\Resources\PostResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction;
-use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
-use Tapp\FilamentAuditing\RelationManagers\AuditsRelationManager;
 use MartinRo\FilamentCharcountField\Components\CharcountedTextarea;
+use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction;
+use Tapp\FilamentAuditing\RelationManagers\AuditsRelationManager;
 
 class PostResource extends Resource
 {
@@ -62,8 +62,8 @@ class PostResource extends Resource
                     ->extraInputAttributes(['style' => 'min-height: 12rem;'])
                     ->required(),
 
-                SpatieMediaLibraryFileUpload::make('featured_image')                
-                ->responsiveImages(),            
+                SpatieMediaLibraryFileUpload::make('featured_image')
+                ->responsiveImages(),
 
                 // Forms\Components\FileUpload::make('featured_image')
                 //     ->storeFileNamesIn('attachment_file_names')
