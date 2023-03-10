@@ -2,6 +2,10 @@
 
 All notable changes to `blog` will be documented in this file.
 
+## v0.1.0 - 10-03-2023
+
+- Migrated images to Spatie Media Library to get responsive SEO tests working
+
 ## v0.0.5 - 05-03-2023
 
 - Had an issue that the development version of the ecommerce gateway was referred to in Composer

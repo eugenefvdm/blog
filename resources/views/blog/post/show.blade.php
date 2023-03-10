@@ -13,8 +13,14 @@
                     </h1>
                 </header>
                 <div>
-                    <img class="float-right h-48 rounded" src="{{ $post->image }}" alt="{{ $post->featured_image_alt_tag }}">
+                    {{-- <img class="float-right h-48 rounded" src="{{ $post->image }}" alt="{{ $post->featured_image_alt_tag }}"> --}}
+                    
                     <p class="lead">{!! $post->excerpt !!}</p>
+                                        
+                    <div class="rounded">
+                        {{ $post->getFirstMedia() }}
+                    </div>
+                    
                     <p>
                         {!! $post->body !!}
                     </p>

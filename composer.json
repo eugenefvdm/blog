@@ -12,6 +12,7 @@
         "diglactic/laravel-breadcrumbs": "^8.0",
         "doctrine/dbal": "^3.4",
         "filament/filament": "^2.0",
+        "filament/spatie-laravel-media-library-plugin": "^2.0",
         "filament/spatie-laravel-settings-plugin": "^2.0",
         "fintechsystems/payfast-onsite-subscriptions": "^1.6",
         "guzzlehttp/guzzle": "^7.2",
@@ -29,6 +30,7 @@
         "spatie/eloquent-sortable": "^4.0",
         "spatie/laravel-backup": "^8.1",
         "spatie/laravel-feed": "^4.1",
+        "spatie/laravel-medialibrary": "^10.0.0",
         "spatie/laravel-sitemap": "^6.2",
         "spatie/laravel-sluggable": "^3.4",
         "tapp/filament-auditing": "^1.4"
