@@ -16,10 +16,8 @@
                     {{-- <img class="float-right h-48 rounded" src="{{ $post->image }}" alt="{{ $post->featured_image_alt_tag }}"> --}}
                     
                     <p class="lead">{!! $post->excerpt !!}</p>
-                                        
-                    <div class="rounded">
-                        {{ $post->getFirstMedia() }}
-                    </div>
+                                                            
+                    {{ $post->getFirstMedia() }}
                     
                     <p>
                         {!! $post->body !!}
