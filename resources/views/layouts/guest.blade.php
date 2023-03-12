@@ -11,7 +11,7 @@
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
-        <!-- Fonts -->
+        <!-- Fonts (Guest) -->
         {{-- <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap"> --}}
         <link rel="preload" 
             href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap"
