@@ -27,9 +27,9 @@ class TagController extends Controller
     public function cloud()
     {
         $tags = Tag::join('post_tag as pt', 'pt.tag_id', '=', 'id')
-        ->selectRaw('title, slug, count(title) as count')
-        ->groupBy('title', 'slug')
-        ->get();
+            ->selectRaw('title, slug, count(title) as count')
+            ->groupBy('title', 'slug')
+            ->get();
 
         $htmlTags = new TagCloud();
 

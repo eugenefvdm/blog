@@ -63,7 +63,7 @@ class PostResource extends Resource
                     ->required(),
 
                 SpatieMediaLibraryFileUpload::make('featured_image')
-                ->responsiveImages(),
+                    ->responsiveImages(),
 
                 // Forms\Components\FileUpload::make('featured_image')
                 //     ->storeFileNamesIn('attachment_file_names')
