@@ -5,7 +5,7 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "require": {
-        "php": "^8.0.2",
+        "php": "^8.1",
         "artesaos/seotools": "^1.0",
         "awcodes/filament-tiptap-editor": "^1.0",
         "bezhansalleh/filament-google-analytics": "^0.0.2",
@@ -35,7 +35,7 @@
         "spatie/laravel-sitemap": "^6.2",
         "spatie/laravel-sluggable": "^3.4",
         "tapp/filament-auditing": "^1.4"
-    },    
+    },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
         "laravel/pint": "^1.0",
