@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Reworck\FilamentSettings\FilamentSettings;
+use Illuminate\Http\Resources\Json\JsonResource;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -33,5 +34,7 @@ class AppServiceProvider extends ServiceProvider
         //             'grid',
         //         ]),
         // ]);
+
+        JsonResource::withoutWrapping();
     }
 }

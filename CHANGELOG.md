@@ -2,6 +2,12 @@
 
 All notable changes to `blog` will be documented in this file.
 
+## v0.1.1 - 2023-07-09
+
+- Add a Post Resource and a Post Collection to streamline retrieving JSON posts from the API
+- Disabled 'data' tag on API in AppServiceProvider
+- Disabled authenticated requirement for retrieving API data
+
 ## v0.1.0 - 10-03-2023
 
 - Migrated images to Spatie Media Library to get responsive SEO tests working
