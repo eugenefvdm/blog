@@ -1,8 +1,8 @@
 <?php
 
+use App\Http\Resources\PostResource;
 use App\Models\Post;
 use Illuminate\Http\Request;
-use App\Http\Resources\PostResource;
 use Illuminate\Support\Facades\Route;
 
 /*
