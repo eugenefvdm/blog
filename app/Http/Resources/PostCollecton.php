@@ -17,6 +17,5 @@ class PostCollection extends ResourceCollection
         return [
             $this->collection
         ];
-        // return parent::toArray($request);
     }
 }

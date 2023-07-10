@@ -17,9 +17,10 @@ class PostResource extends JsonResource
         return [
             'id' => $this->id,
             'title' => $this->title,
-            'excerpt' => strip_tags($this->excerpt),
+            'excerpt' => $this->excerpt,
             'body' => $this->body,
             'slug' => $this->slug,
+            'category_slug' => $this->category->slug,
             'date' => $this->updated_at->format('Y-m-d'),
         ];
         // return parent::toArray($request);
