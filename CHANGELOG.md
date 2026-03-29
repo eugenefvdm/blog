@@ -2,6 +2,7 @@
 
 ## 2026-03-29
 
+- Add seotools and filament-excel packages, fix PostCollection typo
 - Upgrade Filament resources to v3 API with reorganized namespace structure
 
 All notable changes to `blog` will be documented in this file.
