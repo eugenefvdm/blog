@@ -2,23 +2,23 @@
 
 namespace App\Filament\Pages;
 
-use Filament\Schemas\Components\Fieldset;
 use App\Settings\BlogSettings;
 use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Pages\SettingsPage;
+use Filament\Schemas\Components\Fieldset;
 
 class Settings extends SettingsPage
 {
-    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-cog';
+    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-cog';
 
     protected static string $settings = BlogSettings::class;
 
     protected static ?int $navigationSort = 20;
 
-    protected static string | \UnitEnum | null $navigationGroup = 'System';
+    protected static string|\UnitEnum|null $navigationGroup = 'System';
 
     protected function getFormSchema(): array
     {

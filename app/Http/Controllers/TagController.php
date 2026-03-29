@@ -31,7 +31,7 @@ class TagController extends Controller
             ->groupBy('title', 'slug')
             ->get();
 
-        $htmlTags = new TagCloud();
+        $htmlTags = new TagCloud;
 
         // Build the tag cloud based on title, slug, and count
         foreach ($tags as $tag) {

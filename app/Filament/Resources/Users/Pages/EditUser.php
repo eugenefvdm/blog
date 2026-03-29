@@ -2,12 +2,11 @@
 
 namespace App\Filament\Resources\Users\Pages;
 
-use Filament\Actions\ViewAction;
+use App\Filament\Resources\Users\UserResource;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\ForceDeleteAction;
 use Filament\Actions\RestoreAction;
-use App\Filament\Resources\Users\UserResource;
-use Filament\Pages\Actions;
+use Filament\Actions\ViewAction;
 use Filament\Resources\Pages\EditRecord;
 
 class EditUser extends EditRecord

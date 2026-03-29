@@ -1,5 +1,7 @@
 <?php
 
+use ShuvroRoy\FilamentSpatieLaravelBackup\Pages\Backups;
+
 return [
 
     /*
@@ -13,11 +15,11 @@ return [
     */
 
     'pages' => [
-        'backups' => \ShuvroRoy\FilamentSpatieLaravelBackup\Pages\Backups::class,
+        'backups' => Backups::class,
     ],
 
-    //See
-    //backup.pages.backups.navigation.group
+    // See
+    // backup.pages.backups.navigation.group
 
     /*
     |--------------------------------------------------------------------------

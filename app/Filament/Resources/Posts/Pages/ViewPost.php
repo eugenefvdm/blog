@@ -2,9 +2,8 @@
 
 namespace App\Filament\Resources\Posts\Pages;
 
-use Filament\Actions\EditAction;
 use App\Filament\Resources\Posts\PostResource;
-use Filament\Pages\Actions;
+use Filament\Actions\EditAction;
 use Filament\Resources\Pages\ViewRecord;
 
 class ViewPost extends ViewRecord
