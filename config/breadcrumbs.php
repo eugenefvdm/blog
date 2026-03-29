@@ -66,10 +66,10 @@ return [
     |
     */
 
-    // Manager
-    'manager-class' => Diglactic\Breadcrumbs\Manager::class,
+    // Manager (diglactic fork still uses DaveJamesMiller\* namespaces)
+    'manager-class' => DaveJamesMiller\Breadcrumbs\BreadcrumbsManager::class,
 
     // Generator
-    'generator-class' => Diglactic\Breadcrumbs\Generator::class,
+    'generator-class' => DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator::class,
 
 ];

@@ -4,8 +4,8 @@ use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
 use App\Services\Settings;
-use Diglactic\Breadcrumbs\Breadcrumbs;
-use Diglactic\Breadcrumbs\Generator as BreadcrumbTrail;
+use DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator as BreadcrumbTrail;
+use DaveJamesMiller\Breadcrumbs\Facades\Breadcrumbs;
 
 // Home
 Breadcrumbs::for('home', function (BreadcrumbTrail $trail) {

@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-03-29
+
+- Upgrade Filament resources to v3 API with reorganized namespace structure
+
 All notable changes to `blog` will be documented in this file.
 
 ## v0.1.1 - 2023-07-09
