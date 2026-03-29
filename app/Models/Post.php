@@ -24,11 +24,11 @@ class Post extends Model implements Auditable, Feedable, HasMedia, Sitemapable, 
 {
     use HasFactory;
     use HasSlug;
+
     // use ImageCompression;
     use InteractsWithMedia;
     use \OwenIt\Auditing\Auditable;
     use SoftDeletes;
-
     use SortableTrait;
 
     protected $casts = [
