@@ -2,26 +2,23 @@
 
 namespace App\Filament\Resources\Users;
 
-use Filament\Schemas\Schema;
-use Filament\Forms\Components\TextInput;
+use App\Filament\Resources\Users\Pages\CreateUser;
+use App\Filament\Resources\Users\Pages\EditUser;
+use App\Filament\Resources\Users\Pages\ListUsers;
+use App\Filament\Resources\Users\Pages\ViewUser;
+use App\Models\User;
+use Filament\Actions\DeleteBulkAction;
+use Filament\Actions\EditAction;
+use Filament\Actions\ForceDeleteBulkAction;
+use Filament\Actions\RestoreBulkAction;
+use Filament\Actions\ViewAction;
 use Filament\Forms\Components\DateTimePicker;
+use Filament\Forms\Components\TextInput;
+use Filament\Resources\Resource;
+use Filament\Schemas\Schema;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\TrashedFilter;
-use Filament\Actions\ViewAction;
-use Filament\Actions\EditAction;
-use Filament\Actions\DeleteBulkAction;
-use Filament\Actions\RestoreBulkAction;
-use Filament\Actions\ForceDeleteBulkAction;
-use App\Filament\Resources\Users\Pages\ListUsers;
-use App\Filament\Resources\Users\Pages\CreateUser;
-use App\Filament\Resources\Users\Pages\ViewUser;
-use App\Filament\Resources\Users\Pages\EditUser;
-use App\Filament\Resources\UserResource\Pages;
-use App\Models\User;
-use Filament\Forms;
-use Filament\Resources\Resource;
 use Filament\Tables\Table;
-use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
@@ -29,9 +26,9 @@ class UserResource extends Resource
 {
     protected static ?string $model = User::class;
 
-    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-user';
+    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-user';
 
-    protected static string | \UnitEnum | null $navigationGroup = 'System';
+    protected static string|\UnitEnum|null $navigationGroup = 'System';
 
     public static function form(Schema $schema): Schema
     {

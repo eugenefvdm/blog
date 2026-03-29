@@ -53,27 +53,27 @@ class TagCloud
     // {{{ properties
 
     /**
-     * @var    int
+     * @var int
      */
     protected $baseFontSize = 24;
 
     /**
-     * @var    int
+     * @var int
      */
     protected $fontSizeRange = 12;
 
     /**
-     * @var    string
+     * @var string
      */
     protected $cssClass = 'tagcloud';
 
     /**
-     * @var    string
+     * @var string
      */
     protected $sizeSuffix = 'px';
 
     /**
-     * @var    array
+     * @var array
      */
     protected $epocLevel = [
         [
@@ -111,37 +111,37 @@ class TagCloud
     ];
 
     /**
-     * @var    array
+     * @var array
      */
     private $_elements = [];
 
     /**
-     * @var    int
+     * @var int
      */
     private $_max = 0;
 
     /**
-     * @var    int
+     * @var int
      */
     private $_min = 0;
 
     /**
-     * @var    int
+     * @var int
      */
     private $_maxEpoc;
 
     /**
-     * @var    int
+     * @var int
      */
     private $_minEpoc;
 
     /**
-     * @var    float
+     * @var float
      */
     private $_factor = 1;
 
     /**
-     * @var    float
+     * @var float
      */
     private $_epocFactor = 1;
 
@@ -152,7 +152,7 @@ class TagCloud
      * Class constructor
      *
      * @param  int  $baseFontSize  base font size of output tag (option)
-     * @param  int  $fontSizeRange font size range
+     * @param  int  $fontSizeRange  font size range
      *
      * @since Method available since Release 0.1.0
      */
@@ -174,10 +174,10 @@ class TagCloud
     /**
      * add a Tag Element to build Tag Cloud
      *
-     * @param  string  $name      tagname
-     * @param  string  $url       URL to which the tag leads to
-     * @param  int  $count     number of occurrences of this tag
-     * @param  int  $timestamp unixtimestamp
+     * @param  string  $name  tagname
+     * @param  string  $url  URL to which the tag leads to
+     * @param  int  $count  number of occurrences of this tag
+     * @param  int  $timestamp  unixtimestamp
      * @return void
      *
      * @since Method available since Release 0.1.0
@@ -197,8 +197,8 @@ class TagCloud
     /**
      * add a Tag Element to build Tag Cloud
      *
-     * @param  array  $tags Associative array to $this->_elements
-     * @return  void
+     * @param  array  $tags  Associative array to $this->_elements
+     * @return void
      *
      * @since Method available since Release 0.1.0
      */
@@ -228,7 +228,7 @@ class TagCloud
     /**
      * build HTML and CSS at once.
      *
-     * @param  array  $param parameters that influence the HTML output
+     * @param  array  $param  parameters that influence the HTML output
      * @return string HTML and CSS
      *
      * @since Method available since Release 0.1.0
@@ -248,7 +248,7 @@ class TagCloud
     /**
      * Alias to buildAll. Compatibilities for Perl Module.
      *
-     * @param  array  $param 'limit' => int limit of generation tag num.
+     * @param  array  $param  'limit' => int limit of generation tag num.
      * @return string HTML and CSS
      *
      * @see HTML_TagCloud::_buildAll
@@ -266,7 +266,7 @@ class TagCloud
     /**
      * build HTML part
      *
-     * @param  array  $param 'limit' => int limit of generation tag num.
+     * @param  array  $param  'limit' => int limit of generation tag num.
      * @return string HTML
      *
      * @since Method available since Release 0.1.0
@@ -309,7 +309,7 @@ class TagCloud
     /**
      * calc Tag level and create whole HTML of each Tags
      *
-     * @param  array  $param limit of Tag Number
+     * @param  array  $param  limit of Tag Number
      * @return string HTML
      *
      * @since Method available since Release 0.1.0
@@ -371,9 +371,9 @@ class TagCloud
      * deprecated due to wrong function naming: one leading underscore must only
      * be used in private context.
      *
-     * @param  array  $tag      tagname
-     * @param  string  $type     css class of time line param
-     * @param  float  $fontSize size of the font for this tag
+     * @param  array  $tag  tagname
+     * @param  string  $type  css class of time line param
+     * @param  float  $fontSize  size of the font for this tag
      * @return string a Element of Tag HTML
      *
      * @see HTML_TagCloud::createHTMLTag()
@@ -391,9 +391,9 @@ class TagCloud
     /**
      * create a Element of HTML part
      *
-     * @param  array  $tag      tagname
-     * @param  string  $type     css class of time line param
-     * @param  float  $fontSize size of the font for this tag
+     * @param  array  $tag  tagname
+     * @param  string  $type  css class of time line param
+     * @param  float  $fontSize  size of the font for this tag
      * @return string a Element of Tag HTML
      *
      * @since Method available since Release 0.1.3
@@ -411,7 +411,7 @@ class TagCloud
     /**
      * sort tags by name
      *
-     * @param  int  $limit limit element number of create TagCloud
+     * @param  int  $limit  limit element number of create TagCloud
      * @return array
      *
      * @since Method available since Release 0.1.0
@@ -430,8 +430,8 @@ class TagCloud
     /**
      * using for usort()
      *
-     * @param  array  $a first element to compare
-     * @param  array  $b second element to compare
+     * @param  array  $a  first element to compare
+     * @param  array  $b  second element to compare
      * @return int (bool)
      *
      * @since Method available since Release 0.1.0
@@ -492,7 +492,7 @@ class TagCloud
     /**
      * calc Tag Level of size
      *
-     * @param  int  $count number of occurrences of tag to analyze
+     * @param  int  $count  number of occurrences of tag to analyze
      * @return int level
      *
      * @since Method available since Release 0.1.0
@@ -508,7 +508,7 @@ class TagCloud
     /**
      * calc timeline level of Tag
      *
-     * @param  int  $timestamp timestamp of tag to analyze
+     * @param  int  $timestamp  timestamp of tag to analyze
      * @return int level of timeline
      *
      * @since Method available since Release 0.1.0
@@ -524,7 +524,7 @@ class TagCloud
     /**
      * wrap div tag
      *
-     * @param  string  $html HTML to wrap into a div element
+     * @param  string  $html  HTML to wrap into a div element
      * @return string HTML wrapped into a div set up with $this::cssClass
      *
      * @since Method available since Release 0.1.0

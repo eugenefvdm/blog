@@ -20,16 +20,16 @@ use Spatie\Sitemap\Tags\Url;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
-class Post extends Model implements Sortable, Sitemapable, Feedable, Auditable, HasMedia
+class Post extends Model implements Auditable, Feedable, HasMedia, Sitemapable, Sortable
 {
     use HasFactory;
-    use SoftDeletes;
     use HasSlug;
-    use SortableTrait;
-    use \OwenIt\Auditing\Auditable;
-
     // use ImageCompression;
     use InteractsWithMedia;
+    use \OwenIt\Auditing\Auditable;
+    use SoftDeletes;
+
+    use SortableTrait;
 
     protected $casts = [
         'tags' => 'array',

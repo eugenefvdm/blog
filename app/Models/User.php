@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
-use Filament\Panel;
 use Filament\Models\Contracts\FilamentUser;
+use Filament\Panel;
 use FintechSystems\PayFast\Billable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -15,13 +15,13 @@ use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable implements FilamentUser
 {
+    use Billable;
     use HasApiTokens;
     use HasFactory;
     use HasProfilePhoto;
     use Notifiable;
-    use TwoFactorAuthenticatable;
     use SoftDeletes;
-    use Billable;
+    use TwoFactorAuthenticatable;
 
     /**
      * The attributes that are mass assignable.

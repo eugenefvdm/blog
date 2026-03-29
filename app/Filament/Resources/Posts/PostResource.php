@@ -2,31 +2,29 @@
 
 namespace App\Filament\Resources\Posts;
 
-use Filament\Schemas\Schema;
-use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\Select;
+use App\Enums\Status;
+use App\Filament\Resources\Posts\Pages\CreatePost;
+use App\Filament\Resources\Posts\Pages\EditPost;
+use App\Filament\Resources\Posts\Pages\ListPosts;
+use App\Filament\Resources\Posts\Pages\ViewPost;
+use App\Models\Post;
+use Filament\Actions\BulkAction;
+use Filament\Actions\DeleteBulkAction;
+use Filament\Actions\EditAction;
+use Filament\Actions\ForceDeleteBulkAction;
+use Filament\Actions\RestoreBulkAction;
+use Filament\Actions\ViewAction;
+use Filament\Forms;
 use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
+use Filament\Forms\Components\TextInput;
+use Filament\Resources\Resource;
+use Filament\Schemas\Schema;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\TrashedFilter;
-use Filament\Actions\ViewAction;
-use Filament\Actions\EditAction;
-use Filament\Actions\DeleteBulkAction;
-use Filament\Actions\RestoreBulkAction;
-use Filament\Actions\ForceDeleteBulkAction;
-use Filament\Actions\BulkAction;
-use App\Filament\Resources\Posts\Pages\ListPosts;
-use App\Filament\Resources\Posts\Pages\CreatePost;
-use App\Filament\Resources\Posts\Pages\ViewPost;
-use App\Filament\Resources\Posts\Pages\EditPost;
-use App\Enums\Status;
-use App\Filament\Resources\PostResource\Pages;
-use App\Models\Post;
-use Filament\Forms;
-use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
-use Filament\Resources\Resource;
 use Filament\Tables\Table;
-use Filament\Tables;
 use FilamentTiptapEditor\TiptapEditor;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
@@ -39,7 +37,7 @@ class PostResource extends Resource
 {
     protected static ?string $model = Post::class;
 
-    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-document';
+    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-document';
 
     protected static ?string $recordTitleAttribute = 'title';
 

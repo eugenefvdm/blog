@@ -1,5 +1,7 @@
 <?php
 
+use Carbon\Carbon;
+
 return [
     'merchant_id' => env('PAYFAST_MERCHANT_ID'),
     'merchant_key' => env('PAYFAST_MERCHANT_KEY'),
@@ -25,14 +27,14 @@ return [
     'plans' => [
         3 => [
             'name' => 'Monthly R 99',
-            'start_date' => \Carbon\Carbon::now()->format('Y-m-d'),
+            'start_date' => Carbon::now()->format('Y-m-d'),
             'payfast_frequency' => 3, // 3 = monthly
             'initial_amount' => 99, // For card updates or subscription reactivatitions, this should be zero
             'recurring_amount' => 99,
         ],
         6 => [
             'name' => 'Yearly R 1089',
-            'start_date' => \Carbon\Carbon::now()->format('Y-m-d'),
+            'start_date' => Carbon::now()->format('Y-m-d'),
             'payfast_frequency' => 6, // 6 = yearly
             'initial_amount' => 1089, // For card updates or subscription reactivatitions, this should be zero
             'recurring_amount' => 1089,
